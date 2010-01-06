@@ -12,5 +12,7 @@
 	<classpathentry kind="lib" path="lib/commons-beanutils-1.8.2.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-2.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/spring.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
