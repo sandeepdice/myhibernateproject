@@ -19,9 +19,10 @@
          </target>
          <target name="prepare">
          	<mkdir dir="${binDir}/hibernate"/>
-         	<copy file="${srcDir}/applicationContext.xml" toDir="${binDir}"/>
+         	<copy file="${srcDir}/applicationContext.xml" toDir="${binDir}/hibernate/standalone"/>
          </target>
-         <target name="run">
+	
+         <target name="run" depends="clean, prepare, compile">
          	<java classname="hibernate.standalone.test">
          		<classpath>
          			<pathelement path="${toString:lib.path.ref}"/>
