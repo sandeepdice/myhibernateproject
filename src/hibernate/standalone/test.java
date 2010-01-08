@@ -14,7 +14,7 @@ import java.util.*;
 
 public class test {
     private static final ApplicationContext ac= 
-        new ClassPathXmlApplicationContext("applicationContext.xml");
+        new ClassPathXmlApplicationContext("applicationContext.xml", test.class);
 	public static void main(String[] args) {
 		testClass bean= (testClass) ac.getBean("testClassObj");
         System.out.println("Retrieved string: " + bean.getMyString());
@@ -34,6 +34,8 @@ public class test {
         
         TestDao testDao = new TestDao();
         testDao.setJdbcTemplate(testTemplate);
+        Category result = testDao.getCategory(100);
+        System.out.println("Retrieved value: " + result.getCategoryId());
     }
 }
 
@@ -54,9 +56,9 @@ class TestDao extends SimpleJdbcDaoSupport
 {
 	
 	private static final String MOTORIST_SELECT =
-		"select id, email, password, firstName, lastName from motorist";
+		"select categoryId from au_category";
 		private static final String MOTORIST_BY_ID_SELECT =
-		MOTORIST_SELECT + " where id=?";
+		MOTORIST_SELECT + " where categoryId=?";
 	public Category getCategory(long id)
 	{
 			List matches = getJdbcTemplate().query(MOTORIST_BY_ID_SELECT,

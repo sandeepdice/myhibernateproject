@@ -14,7 +14,7 @@
     <!-- the parent application context definition for the springapp application -->
 
     <bean id="testClassObj" class="hibernate.standalone.testClass">
-        <property name="myString" ref="valueFromXML"/>
+        <property name="myString" value="valueFromXML"/>
     </bean>
 
 </beans>
