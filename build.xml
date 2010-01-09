@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project name="Hibernate Standalone"
+         basedir=".">
+         <property name="srcDir" value="src/"/>
+         <property name="binDir" value="classes"/>
+         <property name="libDir" value="lib"/>
+		 <property name="resDir" value="resources/"/>
+  <path id="lib.path.ref">
+    <fileset dir="lib" includes="*.jar"/>
+  </path>
+	
+         <target name="compile" depends="prepare">
+         	<javac srcdir="${srcDir}" 
+         		destdir="${binDir}"
+         		classpath="${toString:lib.path.ref}"
+         	/>
+         </target>
+         <target name="clean">
+         	<delete dir="${binDir}/standalone"/>
+			<delete dir="${binDir}/META-INF"/>
+         	<delete file="${binDir}/jdbc.properties"/>         	
+         </target>
+		<target name="prepare" depends="clean">
+         	<mkdir dir="${binDir}/standalone"/>
+			<mkdir dir="${binDir}/META-INF"/>
+			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
+         	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>  
+         </target> 
+	
+         <target name="run" depends="compile">
+         	<java classname="standalone.StandaloneDBRW">
+         		<classpath>
+         			<pathelement path="${toString:lib.path.ref}"/>
+         			<pathelement path="${binDir}/"/>
+         		</classpath>
+         	</java>
+         </target>
+</project>
