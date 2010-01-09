@@ -19,7 +19,7 @@
          </target>
          <target name="prepare">
          	<mkdir dir="${binDir}/hibernate"/>
-         	<copy file="${srcDir}/applicationContext.xml" toDir="${binDir}/hibernate/standalone"/>
+         	<!--<copy file="${srcDir}/applicationContext.xml" toDir="${binDir}/hibernate/standalone"/> -->
          </target>
 	
          <target name="run" depends="clean, prepare, compile">

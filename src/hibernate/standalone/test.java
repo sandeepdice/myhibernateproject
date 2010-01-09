@@ -14,26 +14,12 @@ import java.util.*;
 
 public class test {
     private static final ApplicationContext ac= 
-        new ClassPathXmlApplicationContext("applicationContext.xml", test.class);
+        new ClassPathXmlApplicationContext("META-INF/beans.xml");
 	public static void main(String[] args) {
 		testClass bean= (testClass) ac.getBean("testClassObj");
-        System.out.println("Retrieved string: " + bean.getMyString());
-
-        BasicDataSource testDataSource = new BasicDataSource();
-        String url="jdbc:mysql://mysql.nirmalya.net/db1";
-        String username="sandeepr";
-        String password="sandeep";
-        String driverClassName="com.mysql.jdbc.Driver";
-        testDataSource.setUrl(url);
-        testDataSource.setUsername(username);
-        testDataSource.setPassword(password);
-        testDataSource.setDriverClassName(driverClassName);
-        
-        JdbcTemplate testTemplate = new JdbcTemplate();
-        testTemplate.setDataSource(testDataSource);
-        
+        System.out.println("Retrieved string: " + bean.getMyString());      
         TestDao testDao = new TestDao();
-        testDao.setJdbcTemplate(testTemplate);
+        testDao.setJdbcTemplate((JdbcTemplate)ac.getBean("jdbcTemplate"));
         Category result = testDao.getCategory(100);
         System.out.println("Retrieved value: " + result.getCategoryId());
     }
@@ -61,6 +47,7 @@ class TestDao extends SimpleJdbcDaoSupport
 		MOTORIST_SELECT + " where categoryId=?";
 	public Category getCategory(long id)
 	{
+		System.out.println("in getCategory");
 			List matches = getJdbcTemplate().query(MOTORIST_BY_ID_SELECT,
 			new Object[] { Long.valueOf(id) },
 			new RowMapper() {
@@ -72,6 +59,7 @@ class TestDao extends SimpleJdbcDaoSupport
 				return category;
 				}
 				});
+			System.out.println("exiting getCategory");
 			return matches.size() > 0 ? (Category) matches.get(0) : null;
 	}
 }
