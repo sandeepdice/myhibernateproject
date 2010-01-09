@@ -12,11 +12,7 @@
            http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 
     <!-- the parent application context definition for the springapp application -->
-
-    <bean id="testClassObj" class="hibernate.standalone.testClass">
-        <property name="myString" value="valueFromXML"/>
-    </bean>
-   
+  
     <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>

@@ -12,12 +12,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class test {
+public class StandaloneDBRW {
     private static final ApplicationContext ac= 
         new ClassPathXmlApplicationContext("META-INF/beans.xml");
 	public static void main(String[] args) {
-		testClass bean= (testClass) ac.getBean("testClassObj");
-        System.out.println("Retrieved string: " + bean.getMyString());      
         TestDao testDao = new TestDao();
         testDao.setJdbcTemplate((JdbcTemplate)ac.getBean("jdbcTemplate"));
         Category result = testDao.getCategory(100);
@@ -25,22 +23,7 @@ public class test {
     }
 }
 
-class testClass
-{
-	private String myString;
-
-	public String getMyString() {
-		return myString;
-	}
-
-	public void setMyString(String myString) {
-		this.myString = myString;
-	}
-}
-
-class TestDao extends SimpleJdbcDaoSupport
-{
-	
+class TestDao extends SimpleJdbcDaoSupport {
 	private static final String MOTORIST_SELECT =
 		"select categoryId from au_category";
 		private static final String MOTORIST_BY_ID_SELECT =
@@ -62,29 +45,4 @@ class TestDao extends SimpleJdbcDaoSupport
 			System.out.println("exiting getCategory");
 			return matches.size() > 0 ? (Category) matches.get(0) : null;
 	}
-}
-
-class Category
-{
-	public long getCategoryId() {
-		return categoryId;
-	}
-	public void setCategoryId(long categoryId) {
-		this.categoryId = categoryId;
-	}
-	public long getCategoryName() {
-		return categoryName;
-	}
-	public void setCategoryName(long categoryName) {
-		this.categoryName = categoryName;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	long categoryId;
-	long categoryName;
-	String description;	
 }

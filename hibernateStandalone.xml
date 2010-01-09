@@ -23,7 +23,7 @@
          </target>
 	
          <target name="run" depends="clean, prepare, compile">
-         	<java classname="hibernate.standalone.test">
+         	<java classname="hibernate.standalone.StandaloneDBRW">
          		<classpath>
          			<pathelement path="${toString:lib.path.ref}"/>
          			<pathelement path="${binDir}/"/>
