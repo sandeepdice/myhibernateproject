@@ -4,16 +4,23 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import batch.BatchCategory;
+
 import standalone.beans.Category;
-import standalone.dao.CategoryJdbcDao;
+import standalone.dao.*;
 
 public class StandaloneDBRW {
     private static final ApplicationContext ac= 
         new ClassPathXmlApplicationContext("META-INF/beans.xml");
 	public static void main(String[] args) {
-        CategoryJdbcDao testDao = new CategoryJdbcDao();
-        testDao.setJdbcTemplate((JdbcTemplate)ac.getBean("jdbcTemplate"));
-        Category result = testDao.getCategory(100, "category1");
-        System.out.println("Retrieved value: " + result.getCategoryId());
+		JdbcTemplate jdbcTemplate = (JdbcTemplate)ac.getBean("jdbcTemplate");
+		/**
+		 * Category Test
+		 */
+		CategoryDao testCategoryDao = new CategoryJdbcDao();
+        testCategoryDao.setJdbcTemplate(jdbcTemplate);
+        BatchCategory batchCategory = new BatchCategory();
+        batchCategory.basicTestCategory(testCategoryDao);
+        batchCategory.batchTestCategory(testCategoryDao);
     }
 }
