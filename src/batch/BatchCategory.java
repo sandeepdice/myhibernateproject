@@ -35,7 +35,7 @@ public class BatchCategory {
 	    try {
 	        //first use a Scanner to get each line
 	        while ( scanner.hasNextLine() ){
-	          processLine( scanner.nextLine() );
+//	          processLine( scanner.nextLine() );
 	        }
 	      }
 	      finally {
