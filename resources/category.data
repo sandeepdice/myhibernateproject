@@ -1,244 +1,244 @@
-1,Antiques,,0
-2,Antiquities,,1
-3,Dinnerware,,1
-4,Statues / Statuettes,,1
-5,Vases,,1
-6,Other Antiques,,1
+Antiques
+Antiquities
+Dinnerware
+Statues / Statuettes
+Vases
+Other Antiques
 
-7,Art,,0
-8,Drawings,,7
-9,Paintings,,7
-10,Prints,,7
-11,Sculptures / Carvings,,7
-12,Other,,7
+Art
+Drawings
+Paintings
+Prints
+Sculptures / Carvings
+Other
 
-13,Automotive,,0
-14,Cars,,13
-15,Car Accessories,,13
-16,Car Maintenance Services,,13
-17,Car Parts,,13
-18,Car Workshop Supplies,,13
-19,Motorcycles,,13
+Automotive
+Cars
+Car Accessories
+Car Maintenance Services
+Car Parts
+Car Workshop Supplies
+Motorcycles
 
-20,Baby,,0
-21,Baby Carriers,,20
-22,Baby Clothing / Shoes,,20
-23,Diapers,,20
-24,Feeding,,20
-25,Maternity Clothing,,20
-26,Prams / Strollers,,20
-27,Other Baby Items,,20
+Baby
+Baby Carriers
+Baby Clothing / Shoes
+Diapers
+Feeding
+Maternity Clothing
+Prams / Strollers
+Other Baby Items
 
-28,Books,,0
-29,Children's Books,,28
-30,Comics,,28
-31,Computer / IT  / Internet,,28
-32,Fiction Books,,28
-33,Magazines,,28
-34,Non-Fiction Books,,28
-35,Textbooks / Education,,28
-36,Non-English Books,,28
-37,Other Books,,28
+Books
+Children's Books
+Comics
+Computer / IT  / Internet
+Fiction Books
+Magazines
+Non-Fiction Books
+Textbooks / Education
+Non-English Books
+Other Books
 
-38,Cameras & Photo,,0
-39,Digital Cameras & Accessories,,38
-40,Film Cameras & Accessories,,38
-41,Video Cameras,,38
-42,Other Camera & Photo Items,,38
+Cameras & Photo
+Digital Cameras & Accessories
+Film Cameras & Accessories
+Video Cameras
+Other Camera & Photo Items
 
-43,Clothing / Shoes & Accessories,,0
-44,Men's Clothing,,43
-45,Men's Accessories,,43
-46,Men's Shoes,,43
-47,Women's Clothing,,43
-48,Women's Accessories,,43
-49,Women's Shoes,,43
-50,Infant and Toddlers,,43
-51,Boys,,43
-52,Girls,,43
-53,Girls' Accessories,,43
-54,Costumes & Reenactment Attire,,43
-55,Other,,43
+Clothing / Shoes & Accessories
+Men's Clothing
+Men's Accessories
+Men's Shoes
+Women's Clothing
+Women's Accessories
+Women's Shoes
+Infant and Toddlers
+Boys
+Girls
+Girls' Accessories
+Costumes & Reenactment Attire
+Other
 
-56,Coins,,0
-57,Asia,,56
-58,Australia,,56
-59,Britain,,56
-60,Europe,,56
-61,US,,56
-62,Other,,56
-63,Paper Money,,56
+Coins
+Asia
+Australia
+Britain
+Europe
+US
+Other
+Paper Money
 
-64,Collectables,,0
-65,Advertising,,64
-66,Animation,,64
-67,Autographs / Celebrity Items,,64
-68,Breweriana Beer,,64
-69,Comics,,64
-70,Cultures / Ethnicities,,64
-71,Decorative Collectables,,64
-72,Historical Memorabilia,,64
-73,Millitaria,,64
-74,Pens & Writing Instruments,,64
-75,Postcards & Paper,,64
-76,Pottery & Glass,,64
-77,Tobacciana,,64
-78,Trading Cards,,64
-79,Transportation,,64
-80,Vanity / Perfume & Shaving,,64
-81,Other Collectables,,64
+Collectables
+Advertising
+Animation
+Autographs / Celebrity Items
+Breweriana Beer
+Comics
+Cultures / Ethnicities
+Decorative Collectables
+Historical Memorabilia
+Millitaria
+Pens & Writing Instruments
+Postcards & Paper
+Pottery & Glass
+Tobacciana
+Trading Cards
+Transportation
+Vanity / Perfume & Shaving
+Other Collectables
+	
+Computers & Networking
+Apple / Macintosh
+Desktop Computers
+Desktop Accessories
+Drives / Controllers & Storage
+Laptops / Notebooks
+Laptop Accessories
+Printers & Scanners
+Printer Supplies & Accessories
+Servers
+Input Devices
+Networking
+Software
+Other Computers
 
-82,Computers & Networking,,0
-83,Apple / Macintosh,,82
-84,Desktop Computers,,82
-85,Desktop Accessories,,82
-86,Drives / Controllers & Storage,,82
-87,Laptops / Notebooks,,82
-88,Laptop Accessories,,82
-89,Printers & Scanners,,82
-90,Printer Supplies & Accessories,,82
-91,Servers,,82
-92,Input Devices,,82
-93,Networking,,82
-94,Software,,82
-95,Other Computers,,82
+Consumer Electronics
+DVD Players & Recorders
+Electronic Gadgets
+Home Audio
+MP3 Players & Accessories
+PDAs
+TV / VCR
+Other Consumer Electronics
 
-96,Consumer Electronics,,0
-97,DVD Players & Recorders,,96
-98,Electronic Gadgets,,96
-99,Home Audio,,96
-100,MP3 Players & Accessories,,96
-101,PDAs,,96
-102,TV / VCR,,96
-103,Other Consumer Electronics,,96
+Dolls & Bears
+Bears
+Dolls
+DVD & Movies
+Action & Adventure
+Animation
+Comedy
+Movie Drama
+Music & Concert
+Romance
+TV Shows
+Other DVDs & Movies
 
-104,Dolls & Bears,,0
-105,Bears,,104
-106,Dolls,,104
-107,DVD & Movies,,104
-108,Action & Adventure,,104
-109,Animation,,104
-110,Comedy,,104
-111,Movie Drama,,104
-112,Music & Concert,,104
-113,Romance,,104
-114,TV Shows,,104
-115,Other DVDs & Movies,,104
+Entertainment Memorabilia
+Movie Memorabilia
+Music Memorabilia
+Other Memorabilia
 
-116,Entertainment Memorabilia,,0
-117,Movie Memorabilia,,116
-118,Music Memorabilia,,116
-119,Other Memorabilia,,116
+Health & Beauty
+Bath & Body
+Beauty Tools
+Cosmetics / Makeup
+Massage
+Nail Care
+Hair Care
+Skin Care
+Weight Management
+Vitamins / Dietary Supplements
+Other Health & Beauty Items
 
-120,Health & Beauty,,0
-121,Bath & Body,,120
-122,Beauty Tools,,120
-123,Cosmetics / Makeup,,120
-124,Massage,,120
-125,Nail Care,,120
-126,Hair Care,,120
-127,Skin Care,,120
-128,Weight Management,,120
-129,Vitamins / Dietary Supplements,,120
-130,Other Health & Beauty Items,,120
+Home & Garden
+Bathroom
+Bedding
+Crafts
+Furniture
+Gardening & Plants
+Home Appliances
+Kitchen
+Lamps / Lighting / Ceiling Fans
+Other Home & Garden Items
 
-131,Home & Garden,,0
-132,Bathroom,,131
-133,Bedding,,131
-134,Crafts,,131
-135,Furniture,,131
-136,Gardening & Plants,,131
-137,Home Appliances,,131
-138,Kitchen,,131
-139,Lamps / Lighting / Ceiling Fans,,131
-140,Other Home & Garden Items,,131
+Jewellery & Watches
+Bracelets
+Brooches
+Earrings
+Loose Gemstones
+Necklaces
+Rings
+Wrist Watches
+Other Jewellery & Watches
 
-141,Jewellery & Watches,,0
-142,Bracelets,,141
-143,Brooches,,141
-144,Earrings,,141
-145,Loose Gemstones,,141
-146,Necklaces,,141
-147,Rings,,141
-148,Wrist Watches,,141
-149,Other Jewellery & Watches,,141
+Mobile & Home Phones
+Mobile Phones Only
+PDA Phones & Accessories
+Mobile Phone Accessories
+Home Phones
+Other Mobile & Home Phones
 
-150,Mobile & Home Phones,,0
-151,Mobile Phones Only,,150
-152,PDA Phones & Accessories,,150
-153,Mobile Phone Accessories,,150
-154,Home Phones,,150
-155,Other Mobile & Home Phones,,150
+Music
+Alternative
+Chinese / Asia
+Classical
+Jazz
+Pop / 1980s
+Pop / 1990s
+Pop / 2000-Now
+Soundtracks
+Compilations
+World Music
+Other Music
 
-156,Music,,0
-157,Alternative,,156
-158,Chinese / Asia,,156
-159,Classical,,156
-160,Jazz,,156
-161,Pop / 1980s,,156
-162,Pop / 1990s,,156
-163,Pop / 2000-Now,,156
-164,Soundtracks,,156
-165,Compilations,,156
-166,World Music,,156
-167,Other Music,,156
+Other Entertainment Items
 
-168,Other Entertainment Items,,0
+Pets and Pet Supplies
+Live Pets
+Pet Supplies & Accessories
 
-169,Pets and Pet Supplies,,0
-170,Live Pets,,169
-171,Pet Supplies & Accessories,,169
+Real Estate
+Residential
+Commercial
+Timeshares
+Other Real Estate
 
-172,Real Estate,,0
-173,Residential,,172
-174,Commercial,,172
-175,Timeshares,,172
-176,Other Real Estate,,172
+Sports
+Memorabilia
+Sporting Goods
 
-177,Sports,,0
-178,Memorabilia,,177
-179,Sporting Goods,,177
+Stamps
+Asia
+Australia
+British Commonwealth
+Europe
+United States
+Other
 
-180,Stamps,,0
-181,Asia,,180
-182,Australia,,180
-183,British Commonwealth,,180
-184,Europe,,180
-185,United States,,180
-186,Other,,180
+Toys & Hobbies
+Action Figures
+Building Toys
+Card Games
+Diecast / Toy Vehicles
+Educational
+Games
+Models
+Puzzles
+Radio Control
+Robots / Monsters / Space Toys
+Slot Cars
+Stuffed Animals / Beanbags
+Transformers & Zoids
+TV / Movie / Character Toys
+Other Toys & Hobbies Items
 
-187,Toys & Hobbies,,0
-188,Action Figures,,187
-189,Building Toys,,187
-190,Card Games,,187
-191,Diecast / Toy Vehicles,,187
-192,Educational,,187
-193,Games,,187
-194,Models,,187
-195,Puzzles,,187
-196,Radio Control,,187
-197,Robots / Monsters / Space Toys,,187
-198,Slot Cars,,187
-199,Stuffed Animals / Beanbags,,187
-200,Transformers & Zoids,,187
-201,TV / Movie / Character Toys,,187
-202,Other Toys & Hobbies Items,,187
+Video Games
+Nintendo DS
+Nintendo GBA
+PC Games
+Playstation-2
+PSP
+Xbox 360 & Xbox
+Other Video Games
 
-203,Video Games,,0
-204,Nintendo DS,,203
-205,Nintendo GBA,,203
-206,PC Games,,203
-207,Playstation-2,,203
-208,PSP,,203
-209,Xbox 360 & Xbox,,203
-210,Other Video Games,,203
+Everything Else
 
-211,Everything Else,,0
+Business Services
 
-212,Business Services,,0
+Musical Instruments
 
-213,Musical Instruments,,0
+Tickets
 
-214,Tickets,,0
-
-215,Other,,0
+Other
