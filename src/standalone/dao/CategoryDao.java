@@ -1,5 +1,7 @@
 package standalone.dao;
 
+import java.util.ArrayList;
+
 import standalone.beans.Category;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 
@@ -9,6 +11,7 @@ public interface CategoryDao {
 	int addCategory(long id, String categoryName, String description);
 	int deleteCategory(long id);
 	int deleteAll();
-	int[] batchInsert();
+	void batchInsert();
 	void batchInsertInLoop();
+	ArrayList<Category> getAllCategory();
 }

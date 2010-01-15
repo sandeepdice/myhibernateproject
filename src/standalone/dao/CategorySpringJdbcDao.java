@@ -1,9 +1,15 @@
 package standalone.dao;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,6 +24,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 	private static final String CATEGORY_INSERT = "insert into au_category values (?, ?, ?)";
 	private static final String CATEGORY_DELETE = "delete from au_category where categoryId = ?";
 	private static final String CATEGORY_DELETE_ALL = "delete from au_category";
+	private static final String CATEGORY_GET_ALL = "select * from au_category";
 	
 	public CategorySpringJdbcDao(ApplicationContext ac)
 	{
@@ -26,7 +33,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 	@Override
 	public Category getCategory(long id, String categoryName)
 	{
-		System.out.println("in getCategory");
+			System.out.println("in getCategory");
 			List matches = getJdbcTemplate().query(CATEGORY_BY_ID_SELECT,
 			new Object[] { Long.valueOf(id), categoryName },
 			new RowMapper() {
@@ -58,13 +65,54 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 		return rowsAffected;
 	}
 	@Override
-	public int[] batchInsert() {
+	public void batchInsert() {
+		List<List> parsedFile = parseFile("resources/category.data");
 		// TODO Auto-generated method stub
-		return null;
 	}
 	@Override
 	public void batchInsertInLoop() {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public ArrayList<Category> getAllCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	private List<List> parseFile(String fileName) {
+		String nextLine;
+		List resultList = new ArrayList(4);
+		List categoryIdList = new ArrayList<Integer>();
+		List categoryNameList = new ArrayList<String>();
+		List categoryDescriptionList = new ArrayList<String>();
+		List parentCategoryIdList = new ArrayList<Integer>();
+		try {
+			InputStream stream = new FileInputStream(fileName);
+			Scanner scanner = new Scanner(stream);
+			while(scanner.hasNextLine())
+			{
+				nextLine = scanner.nextLine();
+				if(!nextLine.trim().isEmpty())
+				{
+					StringTokenizer tokenizer = new StringTokenizer(nextLine, ",");
+					categoryIdList.add(new Integer(tokenizer.nextToken()));
+					categoryNameList.add(tokenizer.nextToken());
+					categoryDescriptionList.add(tokenizer.nextToken());
+					parentCategoryIdList.add(new Integer(tokenizer.nextToken()));
+				}
+			}
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		resultList.add(categoryIdList);
+		resultList.add(categoryNameList);
+		resultList.add(categoryDescriptionList);
+		resultList.add(parentCategoryIdList);
+		return resultList;
 	}
 }

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 import standalone.beans.Category;
@@ -47,7 +48,7 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 	}
 
 	@Override
-	public int[] batchInsert() {
+	public void batchInsert() {
 		
 		try {
 
@@ -72,7 +73,6 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
 	}
 
 	@Override
@@ -130,6 +130,11 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 
 	@Override
 	public Category getCategory(long id, String categoryName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<Category> getAllCategory() {
 		// TODO Auto-generated method stub
 		return null;
 	}
