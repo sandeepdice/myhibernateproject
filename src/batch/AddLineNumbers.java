@@ -29,12 +29,12 @@ public static void main(String[] args) throws FileNotFoundException {
 			nextLine = nextLine.replaceAll(","," &");
 			if(masterCategory)
 			{
-				System.out.println("" + i +"," +nextLine+",,0");
+				System.out.println("" + i +"," +nextLine+","+nextLine+",0");
 				masterCategory = false;
 			}
 			else
 			{
-				System.out.println("" + i +"," +nextLine+",,"+categoryLine);
+				System.out.println("" + i +"," +nextLine+","+nextLine+","+categoryLine);
 			}
 			++i;
 		}
@@ -44,7 +44,8 @@ public static void main(String[] args) throws FileNotFoundException {
 			masterCategory = true;
 			categoryLine = i;
 		}
-	} */
+	} 
+	*/
 	System.out.println(parseFile("resources/category.data"));
 }
 static List<List> parseFile(String fileName) {
@@ -63,11 +64,11 @@ static List<List> parseFile(String fileName) {
 			if(!nextLine.trim().isEmpty())
 			{
 				StringTokenizer tokenizer = new StringTokenizer(nextLine, ",");
-				categoryIdList.add(new Integer(tokenizer.nextToken()));
-				categoryNameList.add(tokenizer.nextToken());
-				categoryDescriptionList.add(tokenizer.nextToken());
-				System.out.println(tokenizer.nextToken());
-				parentCategoryIdList.add(new Integer(tokenizer.nextToken()));
+				categoryIdList.add(tokenizer.hasMoreTokens()?new Integer(tokenizer.nextToken()):new Integer(0));
+				categoryNameList.add(tokenizer.hasMoreTokens()?tokenizer.nextToken():null);
+				categoryDescriptionList.add(tokenizer.hasMoreTokens()?tokenizer.nextToken():null);
+//				System.out.println(tokenizer.nextToken());
+				parentCategoryIdList.add(tokenizer.hasMoreTokens()?new Integer(tokenizer.nextToken()):new Integer(0));
 			}
 		}
 	} catch (NumberFormatException e) {

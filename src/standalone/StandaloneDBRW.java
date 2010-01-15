@@ -17,11 +17,11 @@ public class StandaloneDBRW {
 		/**
 		 * Category Test
 		 */
-		CategoryDao testCategoryDao = new CategoryPlainJdbcDao();
+		CategoryDao testCategoryDao = new CategorySpringJdbcDao(ac);
 		testCategoryDao.deleteAll();
 		testCategoryDao.batchInsert();
-		testCategoryDao.deleteAll();
-		testCategoryDao.batchInsertInLoop();
+//		testCategoryDao.deleteAll();
+//		testCategoryDao.batchInsertInLoop();
 		
 /*      BatchCategory batchCategory = new BatchCategory();
         batchCategory.basicTestCategory(testCategoryDao);

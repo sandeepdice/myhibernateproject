@@ -1,244 +1,244 @@
-Antiques
-Antiquities
-Dinnerware
-Statues / Statuettes
-Vases
-Other Antiques
+1,Antiques,Antiques,0
+2,Antiquities,Antiquities,1
+3,Dinnerware,Dinnerware,1
+4,Statues / Statuettes,Statues / Statuettes,1
+5,Vases,Vases,1
+6,Other Antiques,Other Antiques,1
 
-Art
-Drawings
-Paintings
-Prints
-Sculptures / Carvings
-Other
+7,Art,Art,0
+8,Drawings,Drawings,7
+9,Paintings,Paintings,7
+10,Prints,Prints,7
+11,Sculptures / Carvings,Sculptures / Carvings,7
+12,Other,Other,7
 
-Automotive
-Cars
-Car Accessories
-Car Maintenance Services
-Car Parts
-Car Workshop Supplies
-Motorcycles
+13,Automotive,Automotive,0
+14,Cars,Cars,13
+15,Car Accessories,Car Accessories,13
+16,Car Maintenance Services,Car Maintenance Services,13
+17,Car Parts,Car Parts,13
+18,Car Workshop Supplies,Car Workshop Supplies,13
+19,Motorcycles,Motorcycles,13
 
-Baby
-Baby Carriers
-Baby Clothing / Shoes
-Diapers
-Feeding
-Maternity Clothing
-Prams / Strollers
-Other Baby Items
+20,Baby,Baby,0
+21,Baby Carriers,Baby Carriers,20
+22,Baby Clothing / Shoes,Baby Clothing / Shoes,20
+23,Diapers,Diapers,20
+24,Feeding,Feeding,20
+25,Maternity Clothing,Maternity Clothing,20
+26,Prams / Strollers,Prams / Strollers,20
+27,Other Baby Items,Other Baby Items,20
 
-Books
-Children's Books
-Comics
-Computer / IT  / Internet
-Fiction Books
-Magazines
-Non-Fiction Books
-Textbooks / Education
-Non-English Books
-Other Books
+28,Books,Books,0
+29,Children's Books,Children's Books,28
+30,Comics,Comics,28
+31,Computer / IT  / Internet,Computer / IT  / Internet,28
+32,Fiction Books,Fiction Books,28
+33,Magazines,Magazines,28
+34,Non-Fiction Books,Non-Fiction Books,28
+35,Textbooks / Education,Textbooks / Education,28
+36,Non-English Books,Non-English Books,28
+37,Other Books,Other Books,28
 
-Cameras & Photo
-Digital Cameras & Accessories
-Film Cameras & Accessories
-Video Cameras
-Other Camera & Photo Items
+38,Cameras & Photo,Cameras & Photo,0
+39,Digital Cameras & Accessories,Digital Cameras & Accessories,38
+40,Film Cameras & Accessories,Film Cameras & Accessories,38
+41,Video Cameras,Video Cameras,38
+42,Other Camera & Photo Items,Other Camera & Photo Items,38
 
-Clothing / Shoes & Accessories
-Men's Clothing
-Men's Accessories
-Men's Shoes
-Women's Clothing
-Women's Accessories
-Women's Shoes
-Infant and Toddlers
-Boys
-Girls
-Girls' Accessories
-Costumes & Reenactment Attire
-Other
+43,Clothing / Shoes & Accessories,Clothing / Shoes & Accessories,0
+44,Men's Clothing,Men's Clothing,43
+45,Men's Accessories,Men's Accessories,43
+46,Men's Shoes,Men's Shoes,43
+47,Women's Clothing,Women's Clothing,43
+48,Women's Accessories,Women's Accessories,43
+49,Women's Shoes,Women's Shoes,43
+50,Infant and Toddlers,Infant and Toddlers,43
+51,Boys,Boys,43
+52,Girls,Girls,43
+53,Girls' Accessories,Girls' Accessories,43
+54,Costumes & Reenactment Attire,Costumes & Reenactment Attire,43
+55,Other,Other,43
 
-Coins
-Asia
-Australia
-Britain
-Europe
-US
-Other
-Paper Money
+56,Coins,Coins,0
+57,Asia,Asia,56
+58,Australia,Australia,56
+59,Britain,Britain,56
+60,Europe,Europe,56
+61,US,US,56
+62,Other,Other,56
+63,Paper Money,Paper Money,56
 
-Collectables
-Advertising
-Animation
-Autographs / Celebrity Items
-Breweriana Beer
-Comics
-Cultures / Ethnicities
-Decorative Collectables
-Historical Memorabilia
-Millitaria
-Pens & Writing Instruments
-Postcards & Paper
-Pottery & Glass
-Tobacciana
-Trading Cards
-Transportation
-Vanity / Perfume & Shaving
-Other Collectables
-	
-Computers & Networking
-Apple / Macintosh
-Desktop Computers
-Desktop Accessories
-Drives / Controllers & Storage
-Laptops / Notebooks
-Laptop Accessories
-Printers & Scanners
-Printer Supplies & Accessories
-Servers
-Input Devices
-Networking
-Software
-Other Computers
+64,Collectables,Collectables,0
+65,Advertising,Advertising,64
+66,Animation,Animation,64
+67,Autographs / Celebrity Items,Autographs / Celebrity Items,64
+68,Breweriana Beer,Breweriana Beer,64
+69,Comics,Comics,64
+70,Cultures / Ethnicities,Cultures / Ethnicities,64
+71,Decorative Collectables,Decorative Collectables,64
+72,Historical Memorabilia,Historical Memorabilia,64
+73,Millitaria,Millitaria,64
+74,Pens & Writing Instruments,Pens & Writing Instruments,64
+75,Postcards & Paper,Postcards & Paper,64
+76,Pottery & Glass,Pottery & Glass,64
+77,Tobacciana,Tobacciana,64
+78,Trading Cards,Trading Cards,64
+79,Transportation,Transportation,64
+80,Vanity / Perfume & Shaving,Vanity / Perfume & Shaving,64
+81,Other Collectables,Other Collectables,64
 
-Consumer Electronics
-DVD Players & Recorders
-Electronic Gadgets
-Home Audio
-MP3 Players & Accessories
-PDAs
-TV / VCR
-Other Consumer Electronics
+82,Computers & Networking,Computers & Networking,0
+83,Apple / Macintosh,Apple / Macintosh,82
+84,Desktop Computers,Desktop Computers,82
+85,Desktop Accessories,Desktop Accessories,82
+86,Drives / Controllers & Storage,Drives / Controllers & Storage,82
+87,Laptops / Notebooks,Laptops / Notebooks,82
+88,Laptop Accessories,Laptop Accessories,82
+89,Printers & Scanners,Printers & Scanners,82
+90,Printer Supplies & Accessories,Printer Supplies & Accessories,82
+91,Servers,Servers,82
+92,Input Devices,Input Devices,82
+93,Networking,Networking,82
+94,Software,Software,82
+95,Other Computers,Other Computers,82
 
-Dolls & Bears
-Bears
-Dolls
-DVD & Movies
-Action & Adventure
-Animation
-Comedy
-Movie Drama
-Music & Concert
-Romance
-TV Shows
-Other DVDs & Movies
+96,Consumer Electronics,Consumer Electronics,0
+97,DVD Players & Recorders,DVD Players & Recorders,96
+98,Electronic Gadgets,Electronic Gadgets,96
+99,Home Audio,Home Audio,96
+100,MP3 Players & Accessories,MP3 Players & Accessories,96
+101,PDAs,PDAs,96
+102,TV / VCR,TV / VCR,96
+103,Other Consumer Electronics,Other Consumer Electronics,96
 
-Entertainment Memorabilia
-Movie Memorabilia
-Music Memorabilia
-Other Memorabilia
+104,Dolls & Bears,Dolls & Bears,0
+105,Bears,Bears,104
+106,Dolls,Dolls,104
+107,DVD & Movies,DVD & Movies,104
+108,Action & Adventure,Action & Adventure,104
+109,Animation,Animation,104
+110,Comedy,Comedy,104
+111,Movie Drama,Movie Drama,104
+112,Music & Concert,Music & Concert,104
+113,Romance,Romance,104
+114,TV Shows,TV Shows,104
+115,Other DVDs & Movies,Other DVDs & Movies,104
 
-Health & Beauty
-Bath & Body
-Beauty Tools
-Cosmetics / Makeup
-Massage
-Nail Care
-Hair Care
-Skin Care
-Weight Management
-Vitamins / Dietary Supplements
-Other Health & Beauty Items
+116,Entertainment Memorabilia,Entertainment Memorabilia,0
+117,Movie Memorabilia,Movie Memorabilia,116
+118,Music Memorabilia,Music Memorabilia,116
+119,Other Memorabilia,Other Memorabilia,116
 
-Home & Garden
-Bathroom
-Bedding
-Crafts
-Furniture
-Gardening & Plants
-Home Appliances
-Kitchen
-Lamps / Lighting / Ceiling Fans
-Other Home & Garden Items
+120,Health & Beauty,Health & Beauty,0
+121,Bath & Body,Bath & Body,120
+122,Beauty Tools,Beauty Tools,120
+123,Cosmetics / Makeup,Cosmetics / Makeup,120
+124,Massage,Massage,120
+125,Nail Care,Nail Care,120
+126,Hair Care,Hair Care,120
+127,Skin Care,Skin Care,120
+128,Weight Management,Weight Management,120
+129,Vitamins / Dietary Supplements,Vitamins / Dietary Supplements,120
+130,Other Health & Beauty Items,Other Health & Beauty Items,120
 
-Jewellery & Watches
-Bracelets
-Brooches
-Earrings
-Loose Gemstones
-Necklaces
-Rings
-Wrist Watches
-Other Jewellery & Watches
+131,Home & Garden,Home & Garden,0
+132,Bathroom,Bathroom,131
+133,Bedding,Bedding,131
+134,Crafts,Crafts,131
+135,Furniture,Furniture,131
+136,Gardening & Plants,Gardening & Plants,131
+137,Home Appliances,Home Appliances,131
+138,Kitchen,Kitchen,131
+139,Lamps / Lighting / Ceiling Fans,Lamps / Lighting / Ceiling Fans,131
+140,Other Home & Garden Items,Other Home & Garden Items,131
 
-Mobile & Home Phones
-Mobile Phones Only
-PDA Phones & Accessories
-Mobile Phone Accessories
-Home Phones
-Other Mobile & Home Phones
+141,Jewellery & Watches,Jewellery & Watches,0
+142,Bracelets,Bracelets,141
+143,Brooches,Brooches,141
+144,Earrings,Earrings,141
+145,Loose Gemstones,Loose Gemstones,141
+146,Necklaces,Necklaces,141
+147,Rings,Rings,141
+148,Wrist Watches,Wrist Watches,141
+149,Other Jewellery & Watches,Other Jewellery & Watches,141
 
-Music
-Alternative
-Chinese / Asia
-Classical
-Jazz
-Pop / 1980s
-Pop / 1990s
-Pop / 2000-Now
-Soundtracks
-Compilations
-World Music
-Other Music
+150,Mobile & Home Phones,Mobile & Home Phones,0
+151,Mobile Phones Only,Mobile Phones Only,150
+152,PDA Phones & Accessories,PDA Phones & Accessories,150
+153,Mobile Phone Accessories,Mobile Phone Accessories,150
+154,Home Phones,Home Phones,150
+155,Other Mobile & Home Phones,Other Mobile & Home Phones,150
 
-Other Entertainment Items
+156,Music,Music,0
+157,Alternative,Alternative,156
+158,Chinese / Asia,Chinese / Asia,156
+159,Classical,Classical,156
+160,Jazz,Jazz,156
+161,Pop / 1980s,Pop / 1980s,156
+162,Pop / 1990s,Pop / 1990s,156
+163,Pop / 2000-Now,Pop / 2000-Now,156
+164,Soundtracks,Soundtracks,156
+165,Compilations,Compilations,156
+166,World Music,World Music,156
+167,Other Music,Other Music,156
 
-Pets and Pet Supplies
-Live Pets
-Pet Supplies & Accessories
+168,Other Entertainment Items,Other Entertainment Items,0
 
-Real Estate
-Residential
-Commercial
-Timeshares
-Other Real Estate
+169,Pets and Pet Supplies,Pets and Pet Supplies,0
+170,Live Pets,Live Pets,169
+171,Pet Supplies & Accessories,Pet Supplies & Accessories,169
 
-Sports
-Memorabilia
-Sporting Goods
+172,Real Estate,Real Estate,0
+173,Residential,Residential,172
+174,Commercial,Commercial,172
+175,Timeshares,Timeshares,172
+176,Other Real Estate,Other Real Estate,172
 
-Stamps
-Asia
-Australia
-British Commonwealth
-Europe
-United States
-Other
+177,Sports,Sports,0
+178,Memorabilia,Memorabilia,177
+179,Sporting Goods,Sporting Goods,177
 
-Toys & Hobbies
-Action Figures
-Building Toys
-Card Games
-Diecast / Toy Vehicles
-Educational
-Games
-Models
-Puzzles
-Radio Control
-Robots / Monsters / Space Toys
-Slot Cars
-Stuffed Animals / Beanbags
-Transformers & Zoids
-TV / Movie / Character Toys
-Other Toys & Hobbies Items
+180,Stamps,Stamps,0
+181,Asia,Asia,180
+182,Australia,Australia,180
+183,British Commonwealth,British Commonwealth,180
+184,Europe,Europe,180
+185,United States,United States,180
+186,Other,Other,180
 
-Video Games
-Nintendo DS
-Nintendo GBA
-PC Games
-Playstation-2
-PSP
-Xbox 360 & Xbox
-Other Video Games
+187,Toys & Hobbies,Toys & Hobbies,0
+188,Action Figures,Action Figures,187
+189,Building Toys,Building Toys,187
+190,Card Games,Card Games,187
+191,Diecast / Toy Vehicles,Diecast / Toy Vehicles,187
+192,Educational,Educational,187
+193,Games,Games,187
+194,Models,Models,187
+195,Puzzles,Puzzles,187
+196,Radio Control,Radio Control,187
+197,Robots / Monsters / Space Toys,Robots / Monsters / Space Toys,187
+198,Slot Cars,Slot Cars,187
+199,Stuffed Animals / Beanbags,Stuffed Animals / Beanbags,187
+200,Transformers & Zoids,Transformers & Zoids,187
+201,TV / Movie / Character Toys,TV / Movie / Character Toys,187
+202,Other Toys & Hobbies Items,Other Toys & Hobbies Items,187
 
-Everything Else
+203,Video Games,Video Games,0
+204,Nintendo DS,Nintendo DS,203
+205,Nintendo GBA,Nintendo GBA,203
+206,PC Games,PC Games,203
+207,Playstation-2,Playstation-2,203
+208,PSP,PSP,203
+209,Xbox 360 & Xbox,Xbox 360 & Xbox,203
+210,Other Video Games,Other Video Games,203
 
-Business Services
+211,Everything Else,Everything Else,0
 
-Musical Instruments
+212,Business Services,Business Services,0
 
-Tickets
+213,Musical Instruments,Musical Instruments,0
 
-Other
+214,Tickets,Tickets,0
+
+215,Other,Other,0
