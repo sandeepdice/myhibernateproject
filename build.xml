@@ -11,7 +11,6 @@
     <fileset dir="lib" includes="*.jar"/>
   </path>
 
-
          <target name="compile" depends="prepare">
          	<javac srcdir="${srcDir}" 
          		destdir="${binDir}"
@@ -21,11 +20,14 @@
          <target name="clean">
          	<delete dir="${binDir}/standalone"/>
 			<delete dir="${binDir}/META-INF"/>
-         	<delete file="${binDir}/jdbc.properties"/>         	
+         	<delete file="${binDir}/jdbc.properties"/>   
+         	<delete dir="${appserver.home}/webapps/${appname}"/>
          </target>
 		<target name="prepare" depends="clean">
          	<mkdir dir="${binDir}/standalone"/>
 			<mkdir dir="${binDir}/META-INF"/>
+			<mkdir dir="${appserver.home}/webapps/${appname}/WEB-INF"/>
+			<mkdir dir="${appserver.home}/webapps/${appname}/WEB-INF/jsp"/>
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
          	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>  
          </target> 
@@ -49,4 +51,10 @@
 				<file id="roadrantz-servlet.xml"/> -->
 			</war>
 		</target>
+			
+	<target name="deploy" depends="compile">
+		<copy toDir="${appserver.home}/webapps/${appname}/WEB-INF/classes">
+			<fileset dir="classes"/>
+		</copy>
+	</target>
 </project>
