@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <project name="Hibernate Standalone"
          basedir=".">
+		 <property name="warDir" value="war"/>
          <property name="srcDir" value="src/"/>
-         <property name="binDir" value="classes"/>
-         <property name="libDir" value="lib"/>
+         <property name="binDir" value="${warDir}/WEB-INF/classes"/>
+         <property name="libDir" value="${warDir}/WEB-INF/lib"/>
 		 <property name="resDir" value="resources/"/>
 		 <property file="build.properties"/>
 	
   <path id="lib.path.ref">
-    <fileset dir="lib" includes="*.jar"/>
+    <fileset dir="${libDir}" includes="*.jar"/>
   </path>
 
          <target name="compile" depends="prepare">
@@ -26,8 +27,6 @@
 		<target name="prepare" depends="clean">
          	<mkdir dir="${binDir}/standalone"/>
 			<mkdir dir="${binDir}/META-INF"/>
-			<mkdir dir="${appserver.home}/webapps/${appname}/WEB-INF"/>
-			<mkdir dir="${appserver.home}/webapps/${appname}/WEB-INF/jsp"/>
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
          	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>  
          </target> 
@@ -40,15 +39,11 @@
          		</classpath>
          	</java>
          </target>
-		<target name="deploywar" description="Deploy application as a WAR file">
-			<war destfile="testapp1.war" webxml="webapp/WEB-INF/web.xml">
-				<lib dir="lib"/>
-				<classes dir="classes"/>
-				<copy file="applicationContext.xml" toDir="WEB-INF"/>
-				<copy file="roadrantz-servlet.xml"/>
-				<fileset dir="webapp/src"/>
-				<!--<file id="applicationContext.xml"/>
-				<file id="roadrantz-servlet.xml"/> -->
+		<target name="deploywar" depends="compile" description="Deploy application as a WAR file">
+			<war destfile="testapp1.war" webxml="${warDir}/WEB-INF/web.xml">
+				<fileset dir="${warDir}">
+					<include name="**/*.*"/>
+				</fileset>
 			</war>
 		</target>
 			
