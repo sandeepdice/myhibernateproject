@@ -47,9 +47,11 @@
 			</war>
 		</target>
 			
-	<target name="deploy" depends="compile">
-		<copy toDir="${appserver.home}/webapps/${appname}/WEB-INF/classes">
-			<fileset dir="classes"/>
+	<target name="deploy" depends="deploywar">
+		<copy toDir="${appserver.home}/webapps">
+			<fileset dir=".">
+                <include name="*.war"/>
+            </fileset>
 		</copy>
 	</target>
 </project>
