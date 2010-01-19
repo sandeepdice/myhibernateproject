@@ -24,4 +24,10 @@ public class Category
 	String categoryName;
 	String description;	
 	long parentCategoryId;
+	public long getParentCategoryId() {
+		return parentCategoryId;
+	}
+	public void setParentCategoryId(long parentCategoryId) {
+		this.parentCategoryId = parentCategoryId;
+	}
 }

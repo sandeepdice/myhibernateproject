@@ -109,9 +109,13 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException
 		{	Category category = new Category();
 			category.setCategoryId(rs.getLong(1));
+//			System.out.println(rs.getLong(1));
 			category.setCategoryName(rs.getString(2));
+//			System.out.println(rs.getString(2));
 			category.setDescription(rs.getString(3));
-			category.setCategoryId(rs.getLong(4));
+//			System.out.println(rs.getString(3));
+			category.setParentCategoryId(rs.getLong(4));
+//			System.out.println(rs.getLong(4));
 			return category;
 		}
 			});
