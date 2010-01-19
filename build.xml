@@ -11,7 +11,13 @@
   <path id="lib.path.ref">
     <fileset dir="${libDir}" includes="*.jar"/>
   </path>
-
+    <path id="catalina-ant-classpath">
+        <!-- We need the Catalina jars for Tomcat -->
+        <!--  * for other app servers - check the docs -->
+        <fileset dir="${libDir}">
+            <include name="catalina-ant.jar"/>
+        </fileset>
+    </path>
          <target name="compile" depends="prepare">
          	<javac srcdir="${srcDir}" 
          		destdir="${binDir}"
@@ -54,4 +60,25 @@
             </fileset>
 		</copy>
 	</target>
+	
+    <target name="start" depends="deleteTomcatLogs" description="Start Tomcat application">
+        <start url="${tomcat.manager.url}"
+                 username="${tomcat.manager.username}"
+                 password="${tomcat.manager.password}"
+                 path="/${appname}"/>
+    </target>
+
+    <target name="stop" description="Stop Tomcat application">
+        <stop url="${tomcat.manager.url}"
+                 username="${tomcat.manager.username}"
+                 password="${tomcat.manager.password}"
+                 path="/${appname}"/>
+    </target>
+	
+	<target name="deleteTomcatLogs">
+		<delete>
+			<fileset dir="${appserver.home}/logs" includes="*.*"/>
+		</delete>
+	</target>
+	
 </project>

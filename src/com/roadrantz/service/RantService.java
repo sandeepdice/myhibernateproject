@@ -6,9 +6,9 @@ import java.util.List;
 public class RantService {
 	public List getRecentRants()
 	{
-		ArrayList<Integer> list = new ArrayList();
-		list.add(Integer.parseInt("1"));
-		list.add(Integer.parseInt("2"));
+		ArrayList<String> list = new ArrayList();
+		list.add("1");
+		list.add("2");
 		return list;
 	}
 }

@@ -28,6 +28,10 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 	private static final String CATEGORY_DELETE_ALL = "delete from au_category";
 	private static final String CATEGORY_GET_ALL = "select * from au_category";
 	
+	public CategorySpringJdbcDao()
+	{
+		
+	}
 	public CategorySpringJdbcDao(ApplicationContext ac)
 	{
 		this.setJdbcTemplate((JdbcTemplate)ac.getBean("jdbcTemplate"));
@@ -96,9 +100,23 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 		
 	}
 	@Override
-	public ArrayList<Category> getAllCategory() {
+	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("in getCategory");
+		List<Category> matches = getJdbcTemplate().query(CATEGORY_GET_ALL,
+		new Object[] {  },
+		new RowMapper() {
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException
+		{	Category category = new Category();
+			category.setCategoryId(rs.getLong(1));
+			category.setCategoryName(rs.getString(2));
+			category.setDescription(rs.getString(3));
+			category.setCategoryId(rs.getLong(4));
+			return category;
+		}
+			});
+		System.out.println("exiting getCategory");
+		return matches;
 	}
 	List<List> parseFile(String fileName) {
 		String nextLine;

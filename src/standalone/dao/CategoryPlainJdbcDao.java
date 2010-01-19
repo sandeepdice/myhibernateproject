@@ -7,8 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 import standalone.beans.Category;
 
@@ -133,8 +133,9 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
-	public ArrayList<Category> getAllCategory() {
+	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -8,10 +8,10 @@ public class Category
 	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
 	}
-	public long getCategoryName() {
+	public String getCategoryName() {
 		return categoryName;
 	}
-	public void setCategoryName(long categoryName) {
+	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
 	public String getDescription() {
@@ -21,6 +21,7 @@ public class Category
 		this.description = description;
 	}
 	long categoryId;
-	long categoryName;
+	String categoryName;
 	String description;	
+	long parentCategoryId;
 }
