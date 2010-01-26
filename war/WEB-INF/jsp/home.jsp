@@ -1,8 +1,9 @@
 <%@ page contentType="text/html" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ taglib prefix="logic" uri="http://jakarta.apache.org/struts/tags-logic" %>
+<%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 
-<html>
+<form action="/login.htm" method="post">
 <head><title>Rantz</title></head>
 <body>
 <h2>Welcome to RoadRantz!</h2>
@@ -14,7 +15,7 @@
 		<%=category.getParentCategoryId()%>
 		<%=category.getDescription()%>
 	</logic:equal>
-	<br/>
 </logic:iterate>
+<html:link action="/login.htm">Login</html:link>
 </body>
-</html>
+</form>
