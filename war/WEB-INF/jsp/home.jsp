@@ -16,6 +16,6 @@
 		<%=category.getDescription()%>
 	</logic:equal>
 </logic:iterate>
-<html:link action="/login.htm">Login</html:link>
+<a href="<%=request.getContextPath()%>/login.htm">Login</a>
 </body>
 </form>
