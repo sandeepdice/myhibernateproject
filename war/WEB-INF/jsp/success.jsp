@@ -6,12 +6,8 @@
 <html>
 	<head><title>Rantz</title></head>
 	<body>
-		<form method="post" action="<%=request.getContextPath()%>/login.htm">
-			<table border = "1">
-			<tr><td><input type="text" name="loginId"/></td></tr>
-			<tr><td><input type="text" name="password"/></td></tr>
-			<tr><td><input type="submit" name="submit"/></td></tr>
-			</table>
-		</form>
+		Add Successful
+		<br/>
+		Go to home page: <a href="<%=request.getContextPath()%>/hello.htm">Home</a>
 	</body>
 </html>
