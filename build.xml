@@ -29,12 +29,15 @@
 			<delete dir="${binDir}/META-INF"/>
          	<delete file="${binDir}/jdbc.properties"/>   
          	<delete dir="${appserver.home}/webapps/${appname}"/>
+         	<delete dir="${warDir}/WEB-INF/resources"/>
          </target>
 		<target name="prepare" depends="clean">
          	<mkdir dir="${binDir}/standalone"/>
 			<mkdir dir="${binDir}/META-INF"/>
+			<mkdir dir="${warDir}/WEB-INF/resources"/>
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
-         	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>  
+         	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>
+			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF/resources"/>
          </target> 
 	
          <target name="run" depends="compile">

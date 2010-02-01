@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -21,6 +23,8 @@ import org.springframework.context.ApplicationContext;
 import standalone.beans.Category;
 
 public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements CategoryDao{
+	protected final Log logger = LogFactory.getLog(getClass());
+	
 	private static final String CATEGORY_SELECT = "select categoryId from au_category";
 	private static final String CATEGORY_BY_ID_SELECT = CATEGORY_SELECT + " where categoryId=? and categoryName=?";
 	private static final String CATEGORY_INSERT = "insert into au_category values (?, ?, ?, ?)";
@@ -39,7 +43,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 	@Override
 	public Category getCategory(long id, String categoryName)
 	{
-			System.out.println("in getCategory");
+			logger.debug("in getCategory");
 			List matches = getJdbcTemplate().query(CATEGORY_BY_ID_SELECT,
 			new Object[] { Long.valueOf(id), categoryName },
 			new RowMapper() {
@@ -49,7 +53,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 				return category;
 			}
 				});
-			System.out.println("exiting getCategory");
+			logger.debug("exiting getCategory");
 			return matches.size() > 0 ? (Category) matches.get(0) : null;
 	}
 	@Override
@@ -102,7 +106,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 	@Override
 	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub
-		System.out.println("in getCategory");
+		logger.debug("in getCategory");
 		List<Category> matches = getJdbcTemplate().query(CATEGORY_GET_ALL,
 		new Object[] {  },
 		new RowMapper() {
@@ -119,7 +123,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 			return category;
 		}
 			});
-		System.out.println("exiting getCategory");
+		logger.debug("exiting getCategory");
 		return matches;
 	}
 	List<List> parseFile(String fileName) {
