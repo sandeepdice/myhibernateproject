@@ -8,6 +8,11 @@
         <property name="rantService" ref="rantService"/>
         <property name="categoryDao" ref="categoryDao"/>
     </bean>
+    
+    <bean name="/getCategory.htm" class="com.roadrantz.mvc.GetCategoryController">
+        <property name="categoryDao" ref="categoryDao"/>
+    </bean>    
+    
     <bean name="/login.htm" class="com.roadrantz.mvc.LoginPageController">
     	<property name="formView" value="login"/>
     	<property name="successView" value="success"/>

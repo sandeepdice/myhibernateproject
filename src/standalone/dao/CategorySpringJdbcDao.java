@@ -113,13 +113,9 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException
 		{	Category category = new Category();
 			category.setCategoryId(rs.getLong(1));
-//			System.out.println(rs.getLong(1));
 			category.setCategoryName(rs.getString(2));
-//			System.out.println(rs.getString(2));
 			category.setDescription(rs.getString(3));
-//			System.out.println(rs.getString(3));
 			category.setParentCategoryId(rs.getLong(4));
-//			System.out.println(rs.getLong(4));
 			return category;
 		}
 			});
@@ -162,5 +158,25 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 		resultList.add(categoryDescriptionList);
 		resultList.add(parentCategoryIdList);
 		return resultList;
+	}
+	
+	@Override
+	public List<Category> getItemsByCategoryId(String categoryId)
+	{
+		logger.debug("in getCategory");
+		List<Category> matches = getJdbcTemplate().query(CATEGORY_GET_ALL+" where parentcategoryId=? ",
+		new Object[] { Long.valueOf(categoryId) },
+		new RowMapper() {
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException
+		{	Category category = new Category();
+			category.setCategoryId(rs.getLong(1));
+			category.setCategoryName(rs.getString(2));
+			category.setDescription(rs.getString(3));
+			category.setParentCategoryId(rs.getLong(4));
+			return category;
+		}
+			});
+		logger.debug("exiting getCategory");
+		return matches;		
 	}
 }

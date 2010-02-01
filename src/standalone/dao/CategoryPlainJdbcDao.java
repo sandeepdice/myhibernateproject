@@ -139,5 +139,10 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public List<Category> getItemsByCategoryId(String categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

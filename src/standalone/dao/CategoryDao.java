@@ -15,4 +15,5 @@ public interface CategoryDao {
 	void batchInsert();
 	void batchInsertInLoop();
 	List<Category> getAllCategory();
+	List<Category> getItemsByCategoryId(String categoryId);
 }
