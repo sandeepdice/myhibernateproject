@@ -37,7 +37,7 @@
 			<mkdir dir="${warDir}/WEB-INF/resources"/>
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
          	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>
-			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF/resources"/>
+			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF/classes"/>
          </target> 
 	
          <target name="run" depends="compile">
