@@ -22,6 +22,7 @@
          	<javac srcdir="${srcDir}" 
          		destdir="${binDir}"
          		classpath="${toString:lib.path.ref}"
+         		excludes="standalone/StandaloneDBRW.java"
          	/>
          </target>
          <target name="clean">

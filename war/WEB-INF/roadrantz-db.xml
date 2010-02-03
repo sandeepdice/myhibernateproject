@@ -7,6 +7,9 @@
 	<bean id="categoryDao" class="standalone.dao.CategorySpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
+	<bean id="categoryItemsDao" class="standalone.dao.CategoryItemSpringJdbcDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>	
     <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="url" value="jdbc:mysql://mysql.nirmalya.net/db1"/>
         <property name="username" value="sandeepr"/>

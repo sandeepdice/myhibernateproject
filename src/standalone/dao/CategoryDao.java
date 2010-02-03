@@ -1,10 +1,8 @@
 package standalone.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import standalone.beans.Category;
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 
 public interface CategoryDao {
 	final int BATCH_INSERT_SIZE = 100;

@@ -13,6 +13,10 @@
         <property name="categoryDao" ref="categoryDao"/>
     </bean>    
     
+    <bean name="/getCategoryNItems.htm" class="com.roadrantz.mvc.GetCategoryItemsController">
+    	<property name="categoryItemsDao" ref="categoryItemsDao"/>
+    </bean>
+    
     <bean name="/login.htm" class="com.roadrantz.mvc.LoginPageController">
     	<property name="formView" value="login"/>
     	<property name="successView" value="success"/>
