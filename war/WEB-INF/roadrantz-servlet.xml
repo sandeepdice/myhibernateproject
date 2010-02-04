@@ -14,7 +14,7 @@
     </bean>    
     
     <bean name="/getCategoryNItems.htm" class="com.roadrantz.mvc.GetCategoryItemsController">
-    	<property name="categoryItemsDao" ref="categoryItemsDao"/>
+    	<property name="categoryItemDao" ref="categoryItemsDao"/>
     </bean>
     
     <bean name="/login.htm" class="com.roadrantz.mvc.LoginPageController">

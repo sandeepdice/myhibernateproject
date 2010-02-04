@@ -34,6 +34,8 @@ public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements C
 					return category;
 				}
 					});
+		System.out.println("Setting categoryList");
+		System.out.println("Setting categoryList size: " + categoryList.size());
 		result.put("category", categoryList);
 		
 		List<Item> itemsList = getJdbcTemplate().query(GET_ITEMS_OF_CATEGORY,
@@ -51,6 +53,8 @@ public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements C
 				}
 					});
 		result.put("items", itemsList);
+		System.out.println("Setting itemList");
+		System.out.println("Setting itemList size: " + itemsList.size());		
 		return result;
 	}
 	

@@ -22,7 +22,7 @@ public class GetCategoryItemsController extends AbstractController {
 	}
 	
 	private CategoryItemDao categoryItemDao;
-	public void setCategoryDao(CategoryItemDao categoryItemDao) {
+	public void setCategoryItemDao(CategoryItemDao categoryItemDao) {
 	this.categoryItemDao = categoryItemDao;
 	}
 }

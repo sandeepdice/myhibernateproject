@@ -10,7 +10,7 @@
 <h3>Recent rantz:</h3>
 <logic:iterate id="category" name="rants" type="standalone.beans.Category">
 	<logic:equal name="category" property="parentCategoryId" value="0">
-		<a href="<%=request.getContextPath()%>/getCategory.htm?categoryId=<%=category.getCategoryId()%>">
+		<a href="<%=request.getContextPath()%>/getCategoryNItems.htm?categoryId=<%=category.getCategoryId()%>">
 			<%=category.getCategoryName()%></a>
 		<br/>
 	</logic:equal>
