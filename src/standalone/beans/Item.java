@@ -8,6 +8,13 @@ public class Item {
 	double price;
 	String priceCurrency;
 	String sellerId;
+	String fileName;
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public long getItemId() {
 		return itemId;
 	}

@@ -16,7 +16,10 @@ import standalone.beans.Item;
 public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements CategoryItemDao{
 
 	public static final String GET_SUB_CATEGORIES = "select * from au_category where parentcategoryId=?";
-	public static final String GET_ITEMS_OF_CATEGORY = "select * from au_items where categoryId=?";
+	public static final String GET_ITEMS_OF_CATEGORY = "SELECT a.itemId, a.categoryId, a.displayName, a.description, a.price, a.priceCurrency, " +  
+								" a.sellerId, a.originCountry, CONCAT(a.resourceId,'.',b.resourceType) AS fileName " + 
+								" FROM au_items a, au_resource b, au_category c " +
+								" WHERE a.resourceId = b.resourceId AND a.categoryId = c.categoryId AND c.categoryId=?";
 	@Override
 	public Map<String, List<?>> getCategoryDetails(long categoryId) {
 		// TODO Auto-generated method stub
@@ -43,14 +46,15 @@ public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements C
 				new RowMapper() {
 				public Object mapRow(ResultSet rs, int rowNum) throws SQLException
 				{	Item item = new Item();
-					item.setItemId(rs.getLong(1));
-					item.setCategoryId(rs.getLong(2));
-					item.setDisplayName(rs.getString(3));
-					item.setDescription(rs.getString(4));
-					item.setPrice(rs.getDouble(5));
-					item.setPriceCurrency(rs.getString(6));
-					item.setSellerId(rs.getString(7));
-					item.setOriginCountry(rs.getString(8));
+					item.setItemId(rs.getLong("itemId"));
+					item.setCategoryId(rs.getLong("categoryId"));
+					item.setDisplayName(rs.getString("displayName"));
+					item.setDescription(rs.getString("description"));
+					item.setPrice(rs.getDouble("price"));
+					item.setPriceCurrency(rs.getString("priceCurrency"));
+					item.setSellerId(rs.getString("sellerId"));
+					item.setOriginCountry(rs.getString("originCountry"));
+					item.setFileName(rs.getString("fileName"));
 					return item;
 				}
 					});

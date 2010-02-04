@@ -40,6 +40,9 @@
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
          	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>
 			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF"/>
+			<copy toDir="${warDir}/WEB-INF/resources/Images">
+				<fileset dir="${resDir}/Images" includes="**/*"/>
+			</copy>
          </target> 
 	
          <target name="run" depends="compile">
