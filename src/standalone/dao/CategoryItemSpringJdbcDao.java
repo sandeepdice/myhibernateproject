@@ -46,9 +46,11 @@ public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements C
 					item.setItemId(rs.getLong(1));
 					item.setCategoryId(rs.getLong(2));
 					item.setDisplayName(rs.getString(3));
-					item.setPrice(rs.getDouble(4));
-					item.setPriceCurrency(rs.getString(5));
-					item.setSellerId(rs.getString(4));
+					item.setDescription(rs.getString(4));
+					item.setPrice(rs.getDouble(5));
+					item.setPriceCurrency(rs.getString(6));
+					item.setSellerId(rs.getString(7));
+					item.setOriginCountry(rs.getString(8));
 					return item;
 				}
 					});
