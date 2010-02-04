@@ -9,37 +9,20 @@
 <body>
 <h2>Category Details: </h2>
 <bean:define id="myMap" name="categoryItemsMap" type="java.util.Map"/>
-<%
-	for (java.util.Iterator it = myMap.entrySet().iterator(); it.hasNext();) {
-		java.util.Map.Entry entry = (java.util.Map.Entry) it.next();
-	   String key = (String)entry.getKey();
-	   // do something with the key and the value
-	   if(key.equalsIgnoreCase("category"))
-	   {%>
-		  <h2>Category List: </h2>
-		  <% 
-		   java.util.List<standalone.beans.Category> categoryList = (java.util.List<standalone.beans.Category>)entry.getValue(); 
-		   for(java.util.Iterator it1 = categoryList.iterator(); it1.hasNext();) {
-			   standalone.beans.Category category = (standalone.beans.Category)it1.next();
-			   %>
-			   <%=category.getCategoryName() %>
-			   <%
-		   }
-	   }
-	   if(key.equalsIgnoreCase("items"))
-	   {%>
-	   	<h2>Items List: </h2>
-		<%
-		   java.util.List<standalone.beans.Item> itemList = (java.util.List<standalone.beans.Item>)entry.getValue(); 
-		   for(java.util.Iterator it1 = itemList.iterator(); it1.hasNext();) {
-			   standalone.beans.Item item = (standalone.beans.Item)it1.next();
-			   %>
-			   <%=item.getDescription() %>
-			   <%
-		   }
-	   }	   
-	}
-%>
+<logic:iterate id="mapEntry" name="categoryItemsMap" type="java.util.Map.Entry">
+	<logic:equal name="mapEntry" property="key" value="category">
+		Category List using Struts tags:
+			<logic:iterate id="categoryListIter" name="mapEntry" property="value" type="standalone.beans.Category">
+				<bean:write name="categoryListIter" property="categoryName"/>
+			</logic:iterate>
+	</logic:equal>
+	<logic:equal name="mapEntry" property="key" value="items">
+		Item List using Struts tags:
+			<logic:iterate id="itemListIter" name="mapEntry" property="value" type="standalone.beans.Item">
+				<bean:write name="itemListIter" property="description"/>
+			</logic:iterate>
+	</logic:equal>	
+</logic:iterate>
 <a href="<%=request.getContextPath()%>/login.htm">Login</a>
 </body>
 </form>
