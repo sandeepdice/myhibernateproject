@@ -32,6 +32,16 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
 
+  <servlet>
+    <servlet-name>imageServlet</servlet-name>
+    <servlet-class>com.roadrantz.mvc.GetImageServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>imageServlet</servlet-name>
+    <url-pattern>*.image</url-pattern>
+  </servlet-mapping>
 
 <context-param>
 <param-name>contextConfigLocation</param-name>
