@@ -6,12 +6,9 @@
 <html>
 	<head><title>Rantz</title></head>
 	<body>
-		<form method="post" action="<%=request.getContextPath()%>/login.htm">
-			<table border = "1">
-			<tr><td>Login Id: <input type="text" name="loginId" title="loginId: "/></td></tr>
-			<tr><td>Password: <input type="text" name="password"/></td></tr>
-			<tr><td><input type="submit" name="submit" value="Submit"/></td></tr>
-			</table>
+		<form method="post" action="<%=request.getContextPath()%>/addItem.htm">
+			<html:select property="states">
+			</html:select>
 		</form>
 	</body>
 </html>

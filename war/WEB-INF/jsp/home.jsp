@@ -16,5 +16,6 @@
 	</logic:equal>
 </logic:iterate>
 <a href="<%=request.getContextPath()%>/login.htm">Login</a>
+<a href="<%=request.getContextPath()%>/addItem.htm">Add Item</a>
 </body>
 </form>

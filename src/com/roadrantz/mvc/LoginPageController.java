@@ -16,5 +16,6 @@ public class LoginPageController extends SimpleFormController {
 	}
 	protected void doSubmitAction(Object command) {
 		User user = (User) command;
+		throw new NullPointerException();
 	}
 }
