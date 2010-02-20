@@ -31,6 +31,7 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 	private static final String CATEGORY_DELETE = "delete from au_category where categoryId = ?";
 	private static final String CATEGORY_DELETE_ALL = "delete from au_category";
 	private static final String CATEGORY_GET_ALL = "select * from au_category";
+	private static final String CATEGORY_GET_ALL_SUB_CATEGORIES = "select * from au_category where parentCategoryId != 0 order by categoryName";
 	
 	public CategorySpringJdbcDao()
 	{
@@ -178,5 +179,24 @@ public class CategorySpringJdbcDao extends SimpleJdbcDaoSupport implements Categ
 			});
 		logger.debug("exiting getCategory");
 		return matches;		
+	}
+	@Override
+	public List<Category> getAllSubCategories() {
+		// TODO Auto-generated method stub
+		logger.debug("in getAllSubCategories");
+		List<Category> matches = getJdbcTemplate().query(CATEGORY_GET_ALL_SUB_CATEGORIES,
+		new Object[] {  },
+		new RowMapper() {
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException
+		{	Category category = new Category();
+			category.setCategoryId(rs.getLong(1));
+			category.setCategoryName(rs.getString(2));
+			category.setDescription(rs.getString(3));
+			category.setParentCategoryId(rs.getLong(4));
+			return category;
+		}
+			});
+		logger.debug("exiting getCategory");
+		return matches;	
 	}
 }

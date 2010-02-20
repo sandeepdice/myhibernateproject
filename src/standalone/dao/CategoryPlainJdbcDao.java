@@ -144,5 +144,10 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public List<Category> getAllSubCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

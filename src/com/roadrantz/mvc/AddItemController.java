@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
+
+import standalone.beans.Category;
 import standalone.beans.Item;
+import standalone.dao.CategoryDao;
 
 public class AddItemController extends SimpleFormController {
 	private static final String[] ALL_STATES = {
@@ -36,6 +39,15 @@ public class AddItemController extends SimpleFormController {
 	{
 		Map referenceData = new HashMap();
 		referenceData.put("states", ALL_STATES);
+		
+		List<Category> categoryList = categoryDao.getAllSubCategories();
+		referenceData.put("categoryList", categoryList);
+		
 		return referenceData;
 	}
+	
+	private CategoryDao categoryDao;
+	public void setCategoryDao(CategoryDao categoryDao) {
+	this.categoryDao = categoryDao;
+	}		
 }
