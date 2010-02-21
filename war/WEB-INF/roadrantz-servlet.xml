@@ -26,7 +26,12 @@
     	<property name="formView" value="addItem"/>
     	<property name="successView" value="success"/>
     	<property name="categoryDao" ref="categoryDao"/>
+    	<property name="itemDao" ref="itemDao"/> 
     </bean>
+    
+    <bean name="/getItemList.htm" class="com.roadrantz.mvc.ItemListController">
+    	<property name="itemListDao" ref="itemListDao"/> 
+    </bean>    
         
     <bean id="rantService" class="com.roadrantz.service.RantService"/>
     
@@ -37,5 +42,8 @@
 	<property name="suffix">
 		<value>.jsp</value>
 	</property>
-	</bean>    
+	</bean>
+	
+	    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 </beans>

@@ -7,21 +7,20 @@
 <html>
 	<head><title>Rantz</title></head>
 	<body>
-		<form method="post" action="<%=request.getContextPath()%>/addItem.htm">
-			<select name="testSelect">
-				<c:forEach items="${states}" var="state">
-					<option value="<c:out value="${state}"/>">
-						<c:out value="${state}"/>
-					</option> 
-				</c:forEach>
-			</select>
+		<form method="post" action="<%=request.getContextPath()%>/addItem.htm" enctype="multipart/form-data">
 			<select name="categoryId">
 				<c:forEach items="${categoryList}" var="category">
 					<option value="<c:out value="${category.categoryId}"/>">
 						<c:out value="${category.categoryName}"/>
 					</option> 
 				</c:forEach>
-			</select>			
+			</select>
+			<br/>
+			Image File: <input type="file" name="file"/><br/>
+			Display Name: <input type="text" name="displayName"/><br/>
+			Price: <input type="text" name="price"/><br/>
+			Price Currency: <input type="text" name="priceCurrency"/><br/>
+			<input type="submit"/><br/>			
 		</form>
 	</body>
 </html>

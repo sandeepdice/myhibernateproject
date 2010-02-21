@@ -7,6 +7,14 @@
 	<bean id="categoryDao" class="standalone.dao.CategorySpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
+	<bean id="itemDao" class="standalone.dao.ItemSpringJdbcDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="itemListDao" class="standalone.dao.ItemListSpringJdbcDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>	
+			
 	<bean id="categoryItemsDao" class="standalone.dao.CategoryItemSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>	
