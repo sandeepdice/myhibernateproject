@@ -29,6 +29,13 @@
     	<property name="itemDao" ref="itemDao"/> 
     </bean>
     
+    <bean name="/updateResource.htm  class="com.roadrantz.mvc.UpdateItemResourceController">
+    	<property name="formView" value="updateItemResource"/>
+    	<property name="successView" value="success"/>
+    	<property name="categoryDao" ref="categoryDao"/>
+    	<property name="itemDao" ref="itemDao"/> 
+    </bean>    
+    
     <bean name="/getItemList.htm" class="com.roadrantz.mvc.ItemListController">
     	<property name="itemListDao" ref="itemListDao"/> 
     </bean>    

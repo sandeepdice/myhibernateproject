@@ -7,7 +7,7 @@
 <head><title>Item List</title></head>
 <body>
 
-<table>
+<table border="1">
 	<logic:iterate id="item" name="itemList" type="standalone.beans.Item">
 		<tr>
 			<td><%=item.getItemId() %></td>
@@ -18,7 +18,8 @@
 					<a href="<%=request.getContextPath() %>/addResource.htm</a>">Add Resource</a>
 				</logic:equal>
 				<logic:notEqual name="item" property="resourceId" value="">
-					<%=item.getResourceId() %>
+					<%=item.getResourceId() %> <a href="<%=request.getContextPath() %>/updateResource.htm?resourceId=<%=item.getResourceId() %>:itemId=<%=item.getItemId() %>">
+					Update Resource</a>
 				</logic:notEqual>
 			</td>
 		</tr>
