@@ -24,14 +24,19 @@
     
     <bean name="/addItem.htm" class="com.roadrantz.mvc.AddItemController">
     	<property name="formView" value="addItem"/>
-    	<property name="successView" value="success"/>
+    	<property name="successView" value="uploadFileForItem"/>
     	<property name="categoryDao" ref="categoryDao"/>
     	<property name="itemDao" ref="itemDao"/> 
     </bean>
     
-    <bean name="/updateResource.htm  class="com.roadrantz.mvc.UpdateItemResourceController">
+    <bean name="/updateResource.htm"  class="com.roadrantz.mvc.UpdateItemResourceController">
     	<property name="formView" value="updateItemResource"/>
-    	<property name="successView" value="success"/>
+    	<property name="categoryDao" ref="categoryDao"/>
+    	<property name="itemDao" ref="itemDao"/> 
+    </bean>    
+    
+    <bean name="/uploadFileForItem.htm"  class="com.roadrantz.mvc.UpdateItemResourceController">
+    	<property name="formView" value="updateItemResource"/>
     	<property name="categoryDao" ref="categoryDao"/>
     	<property name="itemDao" ref="itemDao"/> 
     </bean>    

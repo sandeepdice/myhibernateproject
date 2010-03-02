@@ -29,6 +29,7 @@ public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 	private static final String ITEM_INSERT = "INSERT INTO au_items (categoryId, displayName, " +
 			"description, price, priceCurrency, sellerId, originCountry, resourceId) " +
 			"values (?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String GET_NEXT_ITEM_ID = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name='au_items'";
 	
 	public ItemSpringJdbcDao()
 	{
@@ -42,6 +43,7 @@ public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 	@Override
 	public int insertItem(Item item) {
 		// TODO Auto-generated method stub
+		int nextItemId = getNextItemId();
 		int rowsAffected = getJdbcTemplate().update(ITEM_INSERT, new Object[] {
 				/* itemId - not required. Its a sequence ,*/
 				item.getCategoryId(), 
@@ -53,6 +55,22 @@ public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 				item.getOriginCountry()==null?"SG":item.getOriginCountry(),
 				item.getResourceId()==null?"100000":item.getResourceId()
 				});
+		item.setItemId(nextItemId);
 		return rowsAffected;
+	}
+	
+	@Override
+	public int getNextItemId()
+	{
+		List<Integer> itemList = getJdbcTemplate().query(GET_NEXT_ITEM_ID,
+				new Object[] { },
+				new RowMapper() {
+				public Object mapRow(ResultSet rs, int rowNum) throws SQLException
+				{	
+					Integer nextItemId = new Integer(rs.getInt("AUTO_INCREMENT")); 
+					return nextItemId;
+				}
+					});
+		return itemList.get(0).intValue();		
 	}
 }

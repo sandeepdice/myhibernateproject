@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import standalone.beans.Category;
 import standalone.beans.AddItem;
@@ -78,6 +79,6 @@ public class AddItemController extends SimpleFormController {
 		System.out.println("in doSubmitAction");
 		itemDao.insertItem(item);
 		System.out.println("finished doSubmitAction");
-		return new ModelAndView(getSuccessView());
+		return new ModelAndView(new RedirectView("uploadFileForItem.htm"), "itemIdFromSuccessView", item.getItemId());
 	}
 }

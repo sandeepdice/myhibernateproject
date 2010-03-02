@@ -81,7 +81,6 @@ public class UpdateItemResourceController extends SimpleFormController {
 		String itemId = request.getParameter("itemId");
 		item.setResourceId(resourceId);
 		item.setItemId(Integer.parseInt(itemId));
-		itemDao.updateItem(item);
 		return new ModelAndView(getSuccessView());
 	}
 }

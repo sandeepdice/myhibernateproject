@@ -7,4 +7,5 @@ import standalone.beans.Item;
 
 public interface ItemDao {
 	int insertItem(Item item);
+	int getNextItemId();
 }
