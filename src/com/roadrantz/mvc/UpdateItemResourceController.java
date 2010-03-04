@@ -27,37 +27,16 @@ public class UpdateItemResourceController extends SimpleFormController {
 		"WY"
 		};
 	public UpdateItemResourceController() {
-//		setCommandName("Patient");
 		setCommandClass(AddItem.class);
-//		setCommandClass(Item.class);
-//		setSessionForm(true);
 	}
-///*
-	protected void doSubmitAction(Object command) {
-		AddItem item = (AddItem) command;
-		
-		System.out.println("in doSubmitAction");
-		System.out.println("category id: "+item.getCategoryId());
-		System.out.println("display name: "+item.getDisplayName()); 
-		System.out.println("description : "+item.getDescription());
-		System.out.println("price : "+item.getPrice());
-		System.out.println("currency: "+item.getPriceCurrency());		
-		itemDao.insertItem(item);		
-		System.out.println("finished doSubmitAction");
-//		throw new NullPointerException();
-	}
-//	*/
 	
 	@Override
 	protected Map referenceData(HttpServletRequest request)
 	{
-		System.out.println("in referenceData");
+		System.out.println("in referenceData UpdateItemResouceController");
 		Map referenceData = new HashMap();
-		referenceData.put("states", ALL_STATES);
-		
-		List<Category> categoryList = categoryDao.getAllSubCategories();
-		referenceData.put("categoryList", categoryList);
-		
+		referenceData.put("itemIdFromSuccessView", request.getParameter("itemIdFromSuccessView"));
+		System.out.println("itemId received:" + request.getParameter("itemIdFromSuccessView"));
 		return referenceData;
 	}
 	

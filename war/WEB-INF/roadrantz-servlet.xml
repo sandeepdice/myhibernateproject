@@ -37,6 +37,7 @@
     
     <bean name="/uploadFileForItem.htm"  class="com.roadrantz.mvc.UpdateItemResourceController">
     	<property name="formView" value="updateItemResource"/>
+    	<property name="successView" value="success"/>
     	<property name="categoryDao" ref="categoryDao"/>
     	<property name="itemDao" ref="itemDao"/> 
     </bean>    

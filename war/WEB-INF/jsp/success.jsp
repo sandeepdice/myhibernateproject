@@ -6,7 +6,7 @@
 <html>
 	<head><title>Rantz</title></head>
 	<body>
-		Add Successful
+		Your Last Action Successful
 		<br/>
 		Go to home page: <a href="<%=request.getContextPath()%>/hello.htm">Home</a>
 	</body>

@@ -6,10 +6,12 @@
 
 <html>
 	<body>
-		<form method="post" action="<%=request.getContextPath()%>/updateResource.htm?resourceId=<%=request.getParameter("resourceId") %>:itemId=<%=request.getParameter("itemId") %>" 
+		<form method="post" action="<%=request.getContextPath()%>/updateResource.htm?resourceId=<%=request.getParameter("resourceId") %>
+			:itemId=<%=request.getParameter("itemIdFromSuccessView") %>" 
 			enctype="multipart/form-data">
 			Image File: <input type="file" name="file"/><br/>
-			<input type="submit"/><br/>			
+			<input type="submit"/><br/>
+			<input type="hidden" name="itemId" value="<%=request.getParameter("itemIdFromSuccessView") %>"></input>						
 		</form>
 	</body>
 </html>
