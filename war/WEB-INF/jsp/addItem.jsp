@@ -7,7 +7,7 @@
 <html>
 	<head><title>Rantz</title></head>
 	<body>
-		<form method="post" action="<%=request.getContextPath()%>/addItem.htm">
+		<form method="post" action="<%=request.getContextPath()%>/addItem.htm" enctype="multipart/form-data">
 			<select name="categoryId">
 				<c:forEach items="${categoryList}" var="category">
 					<option value="<c:out value="${category.categoryId}"/>">

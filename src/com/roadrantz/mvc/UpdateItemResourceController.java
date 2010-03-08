@@ -1,12 +1,17 @@
 package com.roadrantz.mvc;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -18,28 +23,11 @@ import standalone.dao.CategoryDao;
 import standalone.dao.ItemDao;
 
 public class UpdateItemResourceController extends SimpleFormController {
-	private static final String[] ALL_STATES = {
-		"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL",
-		"GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
-		"MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
-		"NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
-		"SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WV", "WI",
-		"WY"
-		};
+
 	public UpdateItemResourceController() {
 		setCommandClass(AddItem.class);
 	}
-	
-	@Override
-	protected Map referenceData(HttpServletRequest request)
-	{
-		System.out.println("in referenceData UpdateItemResouceController");
-		Map referenceData = new HashMap();
-		referenceData.put("itemIdFromSuccessView", request.getParameter("itemIdFromSuccessView"));
-		System.out.println("itemId received:" + request.getParameter("itemIdFromSuccessView"));
-		return referenceData;
-	}
-	
+		
 	private CategoryDao categoryDao;
 	private ItemDao itemDao;
 	public void setCategoryDao(CategoryDao categoryDao) {
@@ -54,12 +42,28 @@ public class UpdateItemResourceController extends SimpleFormController {
 	protected ModelAndView onSubmit(HttpServletRequest request,
 			HttpServletResponse response, Object command, BindException errors)
 			throws Exception {
+		System.out.println("in onSubmit method: UpdateItemResourceController");
+	// Create a factory for disk-based file items
+		FileItemFactory factory = new DiskFileItemFactory();
+
+		// Create a new file upload handler
+		ServletFileUpload upload = new ServletFileUpload(factory);
+
+		// Parse the request
+		List /* FileItem */ items = upload.parseRequest(request);
+		
 		// TODO Auto-generated method stub
-		AddItem item = (AddItem) command;
-		String resourceId = request.getParameter("resourceId");
-		String itemId = request.getParameter("itemId");
-		item.setResourceId(resourceId);
-		item.setItemId(Integer.parseInt(itemId));
+		Iterator iter = items.iterator();
+		while (iter.hasNext()) {
+		    FileItem item = (FileItem) iter.next();
+
+		    if (item.isFormField()) {
+		        System.out.println("Form Item: " + item.getFieldName() + " Value: " + item.getString());
+		    } else {
+		    		System.out.println("Form Item: " + item.getFieldName() + " Value: " + item.getSize());
+		    }
+		}
+		
 		return new ModelAndView(getSuccessView());
 	}
 }

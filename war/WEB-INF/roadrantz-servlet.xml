@@ -24,7 +24,7 @@
     
     <bean name="/addItem.htm" class="com.roadrantz.mvc.AddItemController">
     	<property name="formView" value="addItem"/>
-    	<property name="successView" value="uploadFileForItem"/>
+    	<property name="successView" value="success"/>
     	<property name="categoryDao" ref="categoryDao"/>
     	<property name="itemDao" ref="itemDao"/> 
     </bean>

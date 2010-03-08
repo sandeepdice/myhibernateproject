@@ -1,12 +1,17 @@
 package com.roadrantz.mvc;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -72,13 +77,29 @@ public class AddItemController extends SimpleFormController {
 	}
 	
 	@Override
-	protected ModelAndView onSubmit(Object command, BindException errors)
+	protected ModelAndView onSubmit(HttpServletRequest request,
+			HttpServletResponse response, Object command, BindException errors)
 			throws Exception {
-		// TODO Auto-generated method stub
+		/*
+		System.out.println("in onSubmit method: UpdateItemResourceController");
+		FileItemFactory factory = new DiskFileItemFactory();
+		ServletFileUpload upload = new ServletFileUpload(factory);
+		List items = upload.parseRequest(request);
+		Iterator iter = items.iterator();
+		while (iter.hasNext()) {
+		    FileItem item = (FileItem) iter.next();
+
+		    if (item.isFormField()) {
+		        System.out.println("Form Item: " + item.getFieldName() + " Value: " + item.getString());
+		    } else {
+		    		System.out.println("Form Item: " + item.getFieldName() + " Value: " + item.getSize());
+		    }
+		} */
+		
 		AddItem item = (AddItem) command;
 		System.out.println("in doSubmitAction");
 		itemDao.insertItem(item);
-		System.out.println("finished doSubmitAction");
-		return new ModelAndView(new RedirectView("uploadFileForItem.htm"), "itemIdFromSuccessView", item.getItemId());
+		System.out.println("finished doSubmitAction"); 
+		return new ModelAndView(getSuccessView());
 	}
 }
