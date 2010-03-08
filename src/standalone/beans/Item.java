@@ -1,5 +1,7 @@
 package standalone.beans;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Item {
 	long itemId;
 	long categoryId;
@@ -72,4 +74,14 @@ public class Item {
 		this.originCountry = originCountry;
 	}
 	String originCountry;
+	
+	private MultipartFile file;
+	
+	public void setFile(MultipartFile file) {
+	    this.file = file;
+	}
+	
+	public MultipartFile getFile() {
+	    return file;
+	}
 }

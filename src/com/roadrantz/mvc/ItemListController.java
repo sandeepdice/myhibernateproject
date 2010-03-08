@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import standalone.beans.Category;
-import standalone.beans.AddItem;
 import standalone.beans.Item;
 import standalone.dao.CategoryDao;
 import standalone.dao.ItemDao;

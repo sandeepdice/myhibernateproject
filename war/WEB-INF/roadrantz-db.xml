@@ -11,6 +11,10 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 	
+	<bean id="resourceDao" class="standalone.dao.ResourceSpringJdbcDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>	
+	
 	<bean id="itemListDao" class="standalone.dao.ItemListSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>	

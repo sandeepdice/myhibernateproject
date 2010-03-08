@@ -3,6 +3,7 @@ package standalone.dao;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,13 +23,14 @@ import org.springframework.context.ApplicationContext;
 
 import standalone.beans.Category;
 import standalone.beans.Item;
+import standalone.beans.Resource;
 
 public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 	protected final Log logger = LogFactory.getLog(getClass());
 	
 	private static final String ITEM_INSERT = "INSERT INTO au_items (categoryId, displayName, " +
 			"description, price, priceCurrency, sellerId, originCountry, resourceId) " +
-			"values (?, ?, ?, ?, ?, ?, ?, ?)";
+			"values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String GET_NEXT_ITEM_ID = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name='au_items'";
 	
 	public ItemSpringJdbcDao()
@@ -41,11 +43,15 @@ public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 	}
 
 	@Override
-	public int insertItem(Item item) {
-		// TODO Auto-generated method stub
+	public int insertItem(Item item, ResourceDao resDao) throws IOException {
+		// Add Resource First
+		int resourceId = resDao.insertResource(new Resource(0, item.getFile().getName(), item.getFile().getContentType(), item.getFile().getBytes()));
+		
+		System.out.println("Adding Item to db");
 		int nextItemId = getNextItemId();
 		int rowsAffected = getJdbcTemplate().update(ITEM_INSERT, new Object[] {
 				/* itemId - not required. Its a sequence ,*/
+				java.sql.Types.NULL,
 				item.getCategoryId(), 
 				item.getDisplayName(), 
 				item.getDescription(),
@@ -53,9 +59,9 @@ public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 				item.getPriceCurrency(),
 				item.getSellerId()==null?"test":item.getSellerId(),
 				item.getOriginCountry()==null?"SG":item.getOriginCountry(),
-				item.getResourceId()==null?"100000":item.getResourceId()
+				resourceId
 				});
-		item.setItemId(nextItemId);
+		item.setItemId(getJdbcTemplate().queryForInt( "select last_insert_id()" ));
 		return rowsAffected;
 	}
 	

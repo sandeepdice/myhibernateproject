@@ -26,8 +26,9 @@
     	<property name="formView" value="addItem"/>
     	<property name="successView" value="success"/>
     	<property name="categoryDao" ref="categoryDao"/>
-    	<property name="itemDao" ref="itemDao"/> 
-    </bean>
+    	<property name="itemDao" ref="itemDao"/>
+    	<property name="resDao" ref="resourceDao"/>  
+    </bean> 
     
     <bean name="/updateResource.htm"  class="com.roadrantz.mvc.UpdateItemResourceController">
     	<property name="formView" value="updateItemResource"/>

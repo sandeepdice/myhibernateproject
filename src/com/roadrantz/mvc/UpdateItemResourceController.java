@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import standalone.beans.Category;
-import standalone.beans.AddItem;
 import standalone.beans.Item;
 import standalone.dao.CategoryDao;
 import standalone.dao.ItemDao;
@@ -25,7 +24,7 @@ import standalone.dao.ItemDao;
 public class UpdateItemResourceController extends SimpleFormController {
 
 	public UpdateItemResourceController() {
-		setCommandClass(AddItem.class);
+		setCommandClass(Item.class);
 	}
 		
 	private CategoryDao categoryDao;

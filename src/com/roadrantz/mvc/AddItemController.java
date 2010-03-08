@@ -19,10 +19,10 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import standalone.beans.Category;
-import standalone.beans.AddItem;
 import standalone.beans.Item;
 import standalone.dao.CategoryDao;
 import standalone.dao.ItemDao;
+import standalone.dao.ResourceDao;
 
 public class AddItemController extends SimpleFormController {
 	private static final String[] ALL_STATES = {
@@ -35,24 +35,23 @@ public class AddItemController extends SimpleFormController {
 		};
 	public AddItemController() {
 //		setCommandName("Patient");
-		setCommandClass(AddItem.class);
-//		setCommandClass(Item.class);
+		setCommandClass(Item.class);
 //		setSessionForm(true);
 	}
-///*
+/*
 	protected void doSubmitAction(Object command) {
-		AddItem item = (AddItem) command;
+		Item item = (Item) command;
 		System.out.println("in doSubmitAction");
 		System.out.println("category id: "+item.getCategoryId());
 		System.out.println("display name: "+item.getDisplayName()); 
 		System.out.println("description : "+item.getDescription());
 		System.out.println("price : "+item.getPrice());
 		System.out.println("currency: "+item.getPriceCurrency());		
-		itemDao.insertItem(item);		
+		itemDao.insertItem(item, resDao);		
 		System.out.println("finished doSubmitAction");
 //		throw new NullPointerException();
 	}
-//	*/
+	*/
 	
 	@Override
 	protected Map referenceData(HttpServletRequest request)
@@ -69,6 +68,13 @@ public class AddItemController extends SimpleFormController {
 	
 	private CategoryDao categoryDao;
 	private ItemDao itemDao;
+	private ResourceDao resDao;
+	public ResourceDao getResDao() {
+		return resDao;
+	}
+	public void setResDao(ResourceDao resDao) {
+		this.resDao = resDao;
+	}
 	public void setCategoryDao(CategoryDao categoryDao) {
 	this.categoryDao = categoryDao;
 	}
@@ -81,11 +87,11 @@ public class AddItemController extends SimpleFormController {
 	protected ModelAndView onSubmit(HttpServletRequest request,
 			HttpServletResponse response, Object command, BindException errors)
 			throws Exception {		
-		AddItem item = (AddItem) command;
+		Item item = (Item) command;
 		System.out.println("in doSubmitAction");
 		MultipartFile file = item.getFile();
 		System.out.println("file size: " + file.getSize());
-		itemDao.insertItem(item);
+		itemDao.insertItem(item, resDao);
 		System.out.println("finished doSubmitAction"); 
 		return new ModelAndView(getSuccessView());
 	}
