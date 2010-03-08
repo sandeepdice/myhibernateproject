@@ -1,13 +1,15 @@
 package standalone.beans;
 
-public class AddItem extends Item {
-	private byte[] file;
-	
-    public void setFile(byte[] file) {
-        this.file = file;
-    }
+import org.springframework.web.multipart.MultipartFile;
 
-    public byte[] getFile() {
-        return file;
-    }
+public class AddItem extends Item {
+	private MultipartFile file;
+	
+	public void setFile(MultipartFile file) {
+	    this.file = file;
+	}
+	
+	public MultipartFile getFile() {
+	    return file;
+	}
 }

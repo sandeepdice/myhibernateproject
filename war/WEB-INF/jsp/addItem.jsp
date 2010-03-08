@@ -19,6 +19,7 @@
 			Display Name: <input type="text" name="displayName"/><br/>
 			Price: <input type="text" name="price"/><br/>
 			Price Currency: <input type="text" name="priceCurrency"/><br/>
+			Image File: <input type="file" name="file"/><br/>
 			<input type="submit"/><br/>			
 		</form>
 	</body>

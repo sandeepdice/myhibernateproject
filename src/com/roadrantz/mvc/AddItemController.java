@@ -13,6 +13,7 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.validation.BindException;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
@@ -79,25 +80,11 @@ public class AddItemController extends SimpleFormController {
 	@Override
 	protected ModelAndView onSubmit(HttpServletRequest request,
 			HttpServletResponse response, Object command, BindException errors)
-			throws Exception {
-		/*
-		System.out.println("in onSubmit method: UpdateItemResourceController");
-		FileItemFactory factory = new DiskFileItemFactory();
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		List items = upload.parseRequest(request);
-		Iterator iter = items.iterator();
-		while (iter.hasNext()) {
-		    FileItem item = (FileItem) iter.next();
-
-		    if (item.isFormField()) {
-		        System.out.println("Form Item: " + item.getFieldName() + " Value: " + item.getString());
-		    } else {
-		    		System.out.println("Form Item: " + item.getFieldName() + " Value: " + item.getSize());
-		    }
-		} */
-		
+			throws Exception {		
 		AddItem item = (AddItem) command;
 		System.out.println("in doSubmitAction");
+		MultipartFile file = item.getFile();
+		System.out.println("file size: " + file.getSize());
 		itemDao.insertItem(item);
 		System.out.println("finished doSubmitAction"); 
 		return new ModelAndView(getSuccessView());
