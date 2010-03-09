@@ -22,12 +22,17 @@ public class ResourceSpringJdbcDao extends SimpleJdbcDaoSupport implements Resou
 //			", resourceType, fileContent) " +
 	"values (?, ?)";
 	
+	public void setLobHandler(LobHandler lobHandler) {
+		this.lobHandler = lobHandler;
+	}
+	
 	private static final String GET_NEXT_RES_ID = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name='au_resource'";
 
 	@Override
 	public int insertResource(final Resource res) {
 		// TODO Auto-generated method stub
 		System.out.println("Inserting resource");
+		System.out.println("File content: "+ res.getFileContent());
 		getJdbcTemplate().execute(
 				RES_INSERT,
 				new AbstractLobCreatingPreparedStatementCallback(this.lobHandler) {

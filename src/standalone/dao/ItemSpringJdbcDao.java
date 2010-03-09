@@ -28,7 +28,7 @@ import standalone.beans.Resource;
 public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 	protected final Log logger = LogFactory.getLog(getClass());
 	
-	private static final String ITEM_INSERT = "INSERT INTO au_items (categoryId, displayName, " +
+	private static final String ITEM_INSERT = "INSERT INTO au_items (itemId, categoryId, displayName, " +
 			"description, price, priceCurrency, sellerId, originCountry, resourceId) " +
 			"values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String GET_NEXT_ITEM_ID = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name='au_items'";
@@ -45,7 +45,7 @@ public class ItemSpringJdbcDao extends SimpleJdbcDaoSupport implements ItemDao{
 	@Override
 	public int insertItem(Item item, ResourceDao resDao) throws IOException {
 		// Add Resource First
-		int resourceId = resDao.insertResource(new Resource(0, item.getFile().getName(), item.getFile().getContentType(), item.getFile().getBytes()));
+		int resourceId = resDao.insertResource(new Resource(0, item.getFile().getOriginalFilename(), item.getFile().getContentType(), item.getFile().getBytes()));
 		
 		System.out.println("Adding Item to db");
 		int nextItemId = getNextItemId();

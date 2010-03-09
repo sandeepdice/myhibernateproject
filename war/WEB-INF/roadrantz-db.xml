@@ -13,7 +13,10 @@
 	
 	<bean id="resourceDao" class="standalone.dao.ResourceSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+		<property name="lobHandler" ref="defaultLobHandler"/>
 	</bean>	
+	
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
 	
 	<bean id="itemListDao" class="standalone.dao.ItemListSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>

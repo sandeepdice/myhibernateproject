@@ -91,6 +91,8 @@ public class AddItemController extends SimpleFormController {
 		System.out.println("in doSubmitAction");
 		MultipartFile file = item.getFile();
 		System.out.println("file size: " + file.getSize());
+		System.out.println("file name: " + file.getName());
+		System.out.println("file byte array length: " + file.getBytes().length);		
 		itemDao.insertItem(item, resDao);
 		System.out.println("finished doSubmitAction"); 
 		return new ModelAndView(getSuccessView());
