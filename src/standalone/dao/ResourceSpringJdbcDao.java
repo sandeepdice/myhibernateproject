@@ -18,15 +18,16 @@ public class ResourceSpringJdbcDao extends SimpleJdbcDaoSupport implements Resou
 
 	private LobHandler lobHandler;
 	
-	private static final String RES_INSERT = "INSERT INTO au_resource (resourceId, file_Content)" +
-//			", resourceType, fileContent) " +
-	"values (?, ?)";
+	private static final String RES_INSERT = "INSERT INTO au_resource (resourceId, file_Content" +
+			", resourceType, resourceName) " +
+	"values (?, ?, ?, ?)";
 	
 	public void setLobHandler(LobHandler lobHandler) {
 		this.lobHandler = lobHandler;
 	}
 	
 	private static final String GET_NEXT_RES_ID = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name='au_resource'";
+	private static final String GET_BYTE_STREAM = "select file_source from au_resource where resourceId = ?";
 
 	@Override
 	public int insertResource(final Resource res) {
@@ -39,12 +40,17 @@ public class ResourceSpringJdbcDao extends SimpleJdbcDaoSupport implements Resou
 					protected void setValues(PreparedStatement ps, LobCreator lobCreator) throws SQLException {
 						ps.setNull(1, java.sql.Types.INTEGER);
 						lobCreator.setBlobAsBytes(ps, 2, res.getFileContent());
-//						ps.setString(2, res.getResourceName());
-//						ps.setString(3, res.getResourceType());
+						ps.setString(3, res.getResourceName());
+						ps.setString(4, res.getResourceType());
 					}
 				}
 		);
 		return getJdbcTemplate().queryForInt( "select last_insert_id()" );
+	}
+	
+	@Override
+	public byte[] getResource(String resourceId) {
+		
 	}
 
 }

@@ -7,4 +7,5 @@ import standalone.beans.Resource;
 
 public interface ResourceDao {
 	int insertResource(final Resource res);
+	byte[] getResource(String resourceId);
 }

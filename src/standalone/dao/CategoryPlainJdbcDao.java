@@ -6,16 +6,22 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+
+import org.springframework.jdbc.core.RowMapper;
+
 import standalone.beans.Category;
 
 public class CategoryPlainJdbcDao implements CategoryDao {
 
 	java.util.Properties dbProperties;
 	String url, username, password, className;
+	private static final String CATEGORY_GET_ALL = "select * from au_category";
 
 	public CategoryPlainJdbcDao()
 	{
@@ -137,7 +143,45 @@ public class CategoryPlainJdbcDao implements CategoryDao {
 	@Override
 	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs;
+		List<Category> categoryList = new ArrayList<Category>();
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement ps = conn.prepareStatement(CATEGORY_GET_ALL);		
+			rs = ps.executeQuery();
+			while(rs.next())
+			{
+				Category category = new Category();
+				category.setCategoryId(rs.getLong(1));
+				category.setCategoryName(rs.getString(2));
+				category.setDescription(rs.getString(3));
+				category.setParentCategoryId(rs.getLong(4));
+				categoryList.add(category);
+			}
+			ps.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return categoryList;
+		/*	
+		List<Category> matches = getJdbcTemplate().query(CATEGORY_GET_ALL,
+		new Object[] {  },
+		new RowMapper() {
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException
+		{	Category category = new Category();
+			category.setCategoryId(rs.getLong(1));
+			category.setCategoryName(rs.getString(2));
+			category.setDescription(rs.getString(3));
+			category.setParentCategoryId(rs.getLong(4));
+			return category;
+		}
+			});
+		logger.debug("exiting getCategory");
+		return matches;
+		*/
 	}
 	@Override
 	public List<Category> getItemsByCategoryId(String categoryId) {

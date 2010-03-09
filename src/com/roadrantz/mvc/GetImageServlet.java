@@ -9,6 +9,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Hashtable;
 
 import javax.servlet.ServletContext;
@@ -16,6 +18,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * Generated comment.
@@ -28,7 +34,9 @@ public class GetImageServlet extends HttpServlet
 {
 
     private static final long serialVersionUID = 1L;
-
+    private static final ApplicationContext ac= 
+        new ClassPathXmlApplicationContext("META-INF/beans.xml");
+    private static final JdbcTemplate jdbcTemplate = (JdbcTemplate)ac.getBean("jdbcTemplate");
 //    private static Log logger = Log.getInstance(BinaryCacheServlet.class, "servlet");
 
     private static Hashtable binaryCacheMap = new Hashtable();
@@ -54,7 +62,12 @@ public class GetImageServlet extends HttpServlet
 
     private void doAction(HttpServletRequest request, HttpServletResponse response)
     {
-    	
+    	try {
+			Connection con = jdbcTemplate.getDataSource().getConnection();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         String binaryId = request.getParameter("imgId");
         ServletContext sc = getServletContext(); 
         String filename = sc.getRealPath("WEB-INF/resources/Images/"+binaryId);
