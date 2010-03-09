@@ -1,5 +1,7 @@
 package standalone;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,15 +13,17 @@ import standalone.dao.*;
 
 public class StandaloneDBRW {
     private static final ApplicationContext ac= 
-        new ClassPathXmlApplicationContext("META-INF/beans.xml");
+        new ClassPathXmlApplicationContext("beans.xml");
 	public static void main(String[] args) {
 //		JdbcTemplate jdbcTemplate = (JdbcTemplate)ac.getBean("jdbcTemplate");
 		/**
 		 * Category Test
 		 */
 		CategoryDao testCategoryDao = new CategorySpringJdbcDao(ac);
-		testCategoryDao.deleteAll();
-		testCategoryDao.batchInsert();
+		List<Category> list = testCategoryDao.getAllCategory();
+		System.out.println(list.size());
+//		testCategoryDao.deleteAll();
+//		testCategoryDao.batchInsert();
 //		testCategoryDao.deleteAll();
 //		testCategoryDao.batchInsertInLoop();
 		

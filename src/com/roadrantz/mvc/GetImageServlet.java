@@ -3,6 +3,7 @@
  */
 package com.roadrantz.mvc;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,6 +24,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import standalone.dao.ResourceDao;
+import standalone.dao.ResourceSpringJdbcDao;
+
 /**
  * Generated comment.
  *
@@ -37,7 +41,7 @@ public class GetImageServlet extends HttpServlet
     private static final ApplicationContext ac= 
         new ClassPathXmlApplicationContext("META-INF/beans.xml");
     private static final JdbcTemplate jdbcTemplate = (JdbcTemplate)ac.getBean("jdbcTemplate");
-//    private static Log logger = Log.getInstance(BinaryCacheServlet.class, "servlet");
+    private static ResourceDao resourceDao = new ResourceSpringJdbcDao();
 
     private static Hashtable binaryCacheMap = new Hashtable();
 
@@ -70,19 +74,21 @@ public class GetImageServlet extends HttpServlet
 		}
         String binaryId = request.getParameter("imgId");
         ServletContext sc = getServletContext(); 
-        String filename = sc.getRealPath("WEB-INF/resources/Images/"+binaryId);
-        System.out.println(filename);
-     // Get the MIME type of the image 
-        String mimeType = sc.getMimeType(filename); 
-        if (mimeType == null) { sc.log("Could not get MIME type of "+filename); 
-        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); return; } 
+//        String filename = sc.getRealPath("WEB-INF/resources/Images/"+binaryId);
+//        System.out.println(filename);
+//     // Get the MIME type of the image 
+//        String mimeType = sc.getMimeType(filename); 
+//        if (mimeType == null) { sc.log("Could not get MIME type of "+filename); 
+//        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); return; } 
         // Set content type resp.setContentType(mimeType); // Set content size 
         try{
-        File file = new File(filename); 
-        response.setContentLength((int)file.length()); // Open the file and output streams 
-        FileInputStream in = new FileInputStream(file); 
+        byte[] buf = resourceDao.getResource(binaryId);
+        System.out.println("Size of image retrieved: " + buf.length);
+//        File file = new File(filename); 
+//        response.setContentLength((int)file.length()); // Open the file and output streams
+        response.setContentLength(buf.length);
+        ByteArrayInputStream in = new ByteArrayInputStream(buf, 0, buf.length); 
         OutputStream out = response.getOutputStream(); // Copy the contents of the file to the output stream 
-        byte[] buf = new byte[1024]; 
         int count = 0; 
         while ((count = in.read(buf)) >= 0) { out.write(buf, 0, count); } in.close(); out.close();
         }

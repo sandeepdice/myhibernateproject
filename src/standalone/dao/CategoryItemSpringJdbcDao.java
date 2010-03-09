@@ -17,7 +17,7 @@ public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements C
 
 	public static final String GET_SUB_CATEGORIES = "select * from au_category where parentcategoryId=?";
 	public static final String GET_ITEMS_OF_CATEGORY = "SELECT a.itemId, a.categoryId, a.displayName, a.description, a.price, a.priceCurrency, " +  
-								" a.sellerId, a.originCountry, CONCAT(a.resourceId,'.',b.resourceType) AS fileName " + 
+								" a.sellerId, a.originCountry, a.resourceId AS fileName " + 
 								" FROM au_items a, au_resource b, au_category c " +
 								" WHERE a.resourceId = b.resourceId AND a.categoryId = c.categoryId AND c.categoryId=?";
 	@Override
@@ -55,6 +55,7 @@ public class CategoryItemSpringJdbcDao extends SimpleJdbcDaoSupport implements C
 					item.setSellerId(rs.getString("sellerId"));
 					item.setOriginCountry(rs.getString("originCountry"));
 					item.setFileName(rs.getString("fileName"));
+					item.setCategoryId(Integer.parseInt(rs.getString("fileName")));
 					return item;
 				}
 					});

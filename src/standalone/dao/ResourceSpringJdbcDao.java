@@ -1,16 +1,22 @@
 package standalone.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
 import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
-import org.xml.sax.InputSource;
 
 import standalone.beans.Resource;
 
@@ -27,7 +33,7 @@ public class ResourceSpringJdbcDao extends SimpleJdbcDaoSupport implements Resou
 	}
 	
 	private static final String GET_NEXT_RES_ID = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name='au_resource'";
-	private static final String GET_BYTE_STREAM = "select file_source from au_resource where resourceId = ?";
+	private static final String GET_BYTE_STREAM = "select file_content from au_resource where resourceId = ?";
 
 	@Override
 	public int insertResource(final Resource res) {
@@ -50,7 +56,25 @@ public class ResourceSpringJdbcDao extends SimpleJdbcDaoSupport implements Resou
 	
 	@Override
 	public byte[] getResource(String resourceId) {
+		System.out.println("resourceId received for db retrieval: " + resourceId);
 		
+		List<Blob> packetList = getJdbcTemplate().query(GET_BYTE_STREAM, new Object[] {resourceId}, new RowMapper() {
+			
+			@Override
+			public Object mapRow(ResultSet arg0, int arg1) throws SQLException {
+				System.out.println("blob length: "+arg0.getBlob("file_content").length());
+				return arg0.getBlob("file_source");
+			}
+		});
+		byte[] resultArray = null;
+		try {
+			resultArray =  packetList.get(0).getBytes(0, (int)packetList.get(0).length());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return resultArray;
 	}
 
 }

@@ -34,7 +34,7 @@
 			<logic:notEmpty name="mapEntry" property="value">			
 				<logic:iterate id="itemListIter" name="mapEntry" property="value" type="standalone.beans.Item">
 					<%=itemListIter.getFileName()%>
-					<img src="<%=request.getContextPath()%>/getImage.image?imgId=<%=itemListIter.getFileName()%>" title="test title" height=100 width=75/>
+					<img src="<%=request.getContextPath()%>/getImage.image?imgId=<%=itemListIter.getCategoryId()%>" title="test title" height=100 width=75/>
 					<bean:write name="itemListIter" property="description"/>
 					<br/>
 				</logic:iterate>
