@@ -4,11 +4,7 @@
 package com.roadrantz.mvc;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -41,7 +37,7 @@ public class GetImageServlet extends HttpServlet
     private static final ApplicationContext ac= 
         new ClassPathXmlApplicationContext("META-INF/beans.xml");
     private static final JdbcTemplate jdbcTemplate = (JdbcTemplate)ac.getBean("jdbcTemplate");
-    private static ResourceDao resourceDao = new ResourceSpringJdbcDao();
+    private static ResourceDao resourceDao = new ResourceSpringJdbcDao(jdbcTemplate);
 
     private static Hashtable binaryCacheMap = new Hashtable();
 
@@ -66,14 +62,8 @@ public class GetImageServlet extends HttpServlet
 
     private void doAction(HttpServletRequest request, HttpServletResponse response)
     {
-    	try {
-			Connection con = jdbcTemplate.getDataSource().getConnection();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
         String binaryId = request.getParameter("imgId");
-        ServletContext sc = getServletContext(); 
+//        ServletContext sc = getServletContext(); 
 //        String filename = sc.getRealPath("WEB-INF/resources/Images/"+binaryId);
 //        System.out.println(filename);
 //     // Get the MIME type of the image 
