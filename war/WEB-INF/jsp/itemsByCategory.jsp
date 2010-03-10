@@ -4,6 +4,20 @@
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Idea by:  Nic Wolfe -->
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=1,menubar=1,resizable=0,width: 387px; height: 500px;');");
+}
+// End -->
+</script>
+
 <form action="/login.htm" method="post">
 <head><title>Rantz</title></head>
 <body>
@@ -34,7 +48,7 @@
 			<logic:notEmpty name="mapEntry" property="value">			
 				<logic:iterate id="itemListIter" name="mapEntry" property="value" type="standalone.beans.Item">
 					<%=itemListIter.getFileName()%>
-					<img src="<%=request.getContextPath()%>/getImage.image?imgId=<%=itemListIter.getCategoryId()%>" title="test title" height=100 width=75/>
+					<img src="<%=request.getContextPath()%>/getImage.image?imgId=<%=itemListIter.getCategoryId()%>" title="test title" height=100 width=75 onclick="javascript:popUp('<%=request.getContextPath()%>/getImage.image?imgId=<%=itemListIter.getCategoryId()%>')"/>
 					<bean:write name="itemListIter" property="description"/>
 					<br/>
 				</logic:iterate>

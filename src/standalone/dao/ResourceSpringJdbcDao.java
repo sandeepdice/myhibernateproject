@@ -61,42 +61,42 @@ public class ResourceSpringJdbcDao extends SimpleJdbcDaoSupport implements Resou
 		System.out.println("resourceId received for db retrieval: *" + resourceId+"*");
 		Connection con;
 		byte[] resultArray = null;
-		try {
-			System.out.println("Line 1");
-			con = getJdbcTemplate().getDataSource().getConnection();
-			System.out.println("Line 2");
-			PreparedStatement ps = con.prepareStatement(GET_BYTE_STREAM);
-			System.out.println("Line 3");
-			ps.setInt(1, Integer.parseInt(resourceId));
-			System.out.println("Line 4");
-			ResultSet rs = ps.executeQuery();
-			System.out.println("Executed query ");
-			
-			while(rs.next())
-			{
-				System.out.println("executing query... ");
-				resultArray = rs.getBytes("file_content");
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-//		List<Blob> packetList = getJdbcTemplate().query(GET_BYTE_STREAM, new Object[] {resourceId}, new RowMapper() {
-//			
-//			@Override
-//			public Object mapRow(ResultSet arg0, int arg1) throws SQLException {
-//				System.out.println("blob length: "+arg0.getBlob("file_content").length());
-//				return arg0.getBlob("file_source");
-//			}
-//		});
-//
 //		try {
-//			resultArray =  packetList.get(0).getBytes(0, (int)packetList.get(0).length());
+//			System.out.println("Line 1");
+//			con = getJdbcTemplate().getDataSource().getConnection();
+//			System.out.println("Line 2");
+//			PreparedStatement ps = con.prepareStatement(GET_BYTE_STREAM);
+//			System.out.println("Line 3");
+//			ps.setInt(1, Integer.parseInt(resourceId));
+//			System.out.println("Line 4");
+//			ResultSet rs = ps.executeQuery();
+//			System.out.println("Executed query ");
+//			
+//			while(rs.next())
+//			{
+//				System.out.println("executing query... ");
+//				resultArray = rs.getBytes("file_content");
+//			}
 //		} catch (SQLException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		
+		List<Blob> packetList = getJdbcTemplate().query(GET_BYTE_STREAM, new Object[] {resourceId}, new RowMapper() {
+			
+			@Override
+			public Object mapRow(ResultSet arg0, int arg1) throws SQLException {
+				System.out.println("blob length: "+arg0.getBlob("file_content").length());
+				return arg0.getBlob("file_content");
+			}
+		});
+
+		try {
+			resultArray =  packetList.get(0).getBytes(1, (int)packetList.get(0).length());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return resultArray;
 	}

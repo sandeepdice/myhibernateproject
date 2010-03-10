@@ -19,7 +19,7 @@
         </fileset>
     </path>
          <target name="compile" depends="prepare">
-         	<javac srcdir="${srcDir}" 
+         	<javac srcdir="${srcDir}"  debug="true"
          		destdir="${binDir}"
          		classpath="${toString:lib.path.ref}"
          		excludes="standalone/StandaloneDBRW.java"
