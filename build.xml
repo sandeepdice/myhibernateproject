@@ -31,16 +31,18 @@
          	<delete file="${binDir}/jdbc.properties"/>   
          	<delete dir="${appserver.home}/webapps/${appname}"/>
          	<delete dir="${warDir}/WEB-INF/resources"/>
-         	<delete file="${warDir}/WEB-INF/log4j.properties"/>
+         	<delete file="${warDir}/WEB-INF/classes/log4j.properties"/>
+         	<delete dir="${warDir}/WEB-INF/log/"/>
          </target>
 		<target name="prepare" depends="clean">
          	<mkdir dir="${binDir}/standalone"/>
 			<mkdir dir="${binDir}/META-INF"/>
 			<mkdir dir="${warDir}/WEB-INF/resources"/>
+			<mkdir dir="${warDir}/WEB-INF/log"/>
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
          	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>
 			<copy file="${resDir}/jdbc.properties" toDir="${warDir}/WEB-INF/resources"/>
-			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF"/>
+			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF/classes"/>
 			<copy toDir="${warDir}/WEB-INF/resources/Images">
 				<fileset dir="${resDir}/Images" includes="**/*"/>
 			</copy>

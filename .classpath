@@ -8,7 +8,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-dbcp-1.2.2.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-lang-1.0.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-pool-1.4.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/dom4j-1.6.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-2.1.1.jar"/>
@@ -25,5 +24,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts-1.2.7.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
