@@ -12,11 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
+import com.roadrantz.dao.CategoryDao;
+import com.roadrantz.dao.ItemDao;
+import com.roadrantz.dao.ItemListDao;
+
 import standalone.beans.Category;
 import standalone.beans.Item;
-import standalone.dao.CategoryDao;
-import standalone.dao.ItemDao;
-import standalone.dao.ItemListDao;
 
 public class ItemListController extends AbstractController {
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)throws Exception {

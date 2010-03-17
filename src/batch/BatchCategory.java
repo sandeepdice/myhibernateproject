@@ -4,8 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import com.roadrantz.dao.CategoryDao;
+
 import standalone.beans.Category;
-import standalone.dao.CategoryDao;
 
 public class BatchCategory {
 	public void basicTestCategory(CategoryDao categoryDao)

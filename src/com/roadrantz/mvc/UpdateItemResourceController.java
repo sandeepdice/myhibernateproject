@@ -16,10 +16,11 @@ import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
+import com.roadrantz.dao.CategoryDao;
+import com.roadrantz.dao.ItemDao;
+
 import standalone.beans.Category;
 import standalone.beans.Item;
-import standalone.dao.CategoryDao;
-import standalone.dao.ItemDao;
 
 public class UpdateItemResourceController extends SimpleFormController {
 

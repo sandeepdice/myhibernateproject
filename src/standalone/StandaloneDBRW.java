@@ -6,10 +6,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.roadrantz.dao.*;
+
 import batch.BatchCategory;
 
 import standalone.beans.Category;
-import standalone.dao.*;
 
 public class StandaloneDBRW {
     private static final ApplicationContext ac= 

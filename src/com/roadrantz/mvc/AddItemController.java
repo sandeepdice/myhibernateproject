@@ -18,11 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.roadrantz.dao.CategoryDao;
+import com.roadrantz.dao.ItemDao;
+import com.roadrantz.dao.ResourceDao;
+
 import standalone.beans.Category;
 import standalone.beans.Item;
-import standalone.dao.CategoryDao;
-import standalone.dao.ItemDao;
-import standalone.dao.ResourceDao;
 
 public class AddItemController extends SimpleFormController {
 	private static final String[] ALL_STATES = {

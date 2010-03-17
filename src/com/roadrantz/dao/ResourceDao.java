@@ -1,4 +1,4 @@
-package standalone.dao;
+package com.roadrantz.dao;
 
 import org.springframework.jdbc.support.lob.LobHandler;
 

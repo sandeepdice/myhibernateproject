@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
+
+import com.roadrantz.dao.CategoryItemDao;
+
 import standalone.beans.User;
-import standalone.dao.CategoryItemDao;
 
 public class GetCategoryItemsController extends AbstractController {
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)throws Exception {

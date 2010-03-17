@@ -20,8 +20,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import standalone.dao.ResourceDao;
-import standalone.dao.ResourceSpringJdbcDao;
+import com.roadrantz.dao.ResourceDao;
+import com.roadrantz.dao.ResourceSpringJdbcDao;
+
 
 /**
  * Generated comment.

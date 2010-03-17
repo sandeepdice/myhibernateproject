@@ -4,27 +4,27 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-	<bean id="categoryDao" class="standalone.dao.CategorySpringJdbcDao">
+	<bean id="categoryDao" class="com.roadrantz.dao.CategorySpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean> 
 	
 		
-	<bean id="itemDao" class="standalone.dao.ItemSpringJdbcDao">
+	<bean id="itemDao" class="com.roadrantz.dao.ItemSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 	
-	<bean id="resourceDao" class="standalone.dao.ResourceSpringJdbcDao">
+	<bean id="resourceDao" class="com.roadrantz.dao.ResourceSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 		<property name="lobHandler" ref="defaultLobHandler"/>
 	</bean>	
 	
 	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
 	
-	<bean id="itemListDao" class="standalone.dao.ItemListSpringJdbcDao">
+	<bean id="itemListDao" class="com.roadrantz.dao.ItemListSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>	
 			
-	<bean id="categoryItemsDao" class="standalone.dao.CategoryItemSpringJdbcDao">
+	<bean id="categoryItemsDao" class="com.roadrantz.dao.CategoryItemSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>	
     <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource">

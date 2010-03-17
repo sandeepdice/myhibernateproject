@@ -9,8 +9,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
-import standalone.dao.CategoryDao;
 
+import com.roadrantz.dao.CategoryDao;
 import com.roadrantz.service.RantService;
 
 public class HomePageController extends AbstractController {

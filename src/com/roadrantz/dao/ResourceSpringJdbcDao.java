@@ -1,4 +1,4 @@
-package standalone.dao;
+package com.roadrantz.dao;
 
 import java.io.IOException;
 import java.io.InputStream;
