@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts-1.2.7.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-api.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/acegi-security-1.0.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
