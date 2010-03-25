@@ -54,12 +54,27 @@
     <url-pattern>*.image</url-pattern>
   </servlet-mapping>
 
-<context-param>
-<param-name>contextConfigLocation</param-name>
-<param-value>
-/WEB-INF/roadrantz-servlet.xml
-/WEB-INF/roadrantz-db.xml
-</param-value>
-</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/roadrantz-servlet.xml
+			/WEB-INF/roadrantz-db.xml
+			/WEB-INF/roadrantz-security.xml
+		</param-value>
+	</context-param>
+
+<filter>
+	<filter-name>SpringSecurityFilterChainProxy</filter-name>
+	<filter-class>org.acegisecurity.util.FilterToBeanProxy</filter-class>
+	<init-param>
+		<param-name>targetClass</param-name>
+		<param-value>org.acegisecurity.util.FilterChainProxy</param-value>
+	</init-param>
+</filter>
+
+<filter-mapping>
+	<filter-name>SpringSecurityFilterChainProxy</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
 
 </web-app>

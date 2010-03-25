@@ -6,12 +6,10 @@
 <html>
 	<head><title>Rantz</title></head>
 	<body>
-		<form method="post" action="<%=request.getContextPath()%>/login.htm">
-			<table border = "1">
-			<tr><td>Login Id: <input type="text" name="loginId" title="loginId: "/></td></tr>
-			<tr><td>Password: <input type="text" name="password"/></td></tr>
-			<tr><td><input type="submit" name="submit" value="Submit"/></td></tr>
-			</table>
-		</form>
+		<form method="POST" action="j_acegi_security_check">
+			<b>Username: </b><input type="text" name="j_username"><br>
+			<b>Password: </b><input type="password" name="j_password"><br>
+			<input type="submit" value="Login">
+		</form>		
 	</body>
 </html>

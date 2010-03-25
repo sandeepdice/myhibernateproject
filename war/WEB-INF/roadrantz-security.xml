@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="filterChainProxy" class="org.acegisecurity.util.FilterChainProxy">
+		<property name="filterInvocationDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/**=httpSessionIntegrationFilter,
+				authenticationProcessingFilter
+			</value>
+		</property>
+	</bean>
+	<bean id="httpSessionIntegrationFilter" class="org.acegisecurity.context.HttpSessionContextIntegrationFilter"/>
+	<bean id="authenticationEntryPoint" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl" value="/login.htm" />
+		<!-- 
+			<property name="forceHttps" value="true" />
+		-->
+	</bean>	
+	<bean id="authenticationProcessingFilter" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
+		<property name="filterProcessesUrl" value="/j_acegi_security_check" />
+		<property name="authenticationFailureUrl" value="/login.htm?login_error=1" />
+		<property name="defaultTargetUrl" value="/" />
+		<property name="authenticationManager" ref="authenticationManager"/>
+	</bean>	
+	
+	<bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref bean="daoAuthenticationProvider"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="daoAuthenticationProvider" class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="authenticationDao" />
+	</bean>
+
+	<bean id="authenticationDao" class="org.acegisecurity.userdetails.memory.InMemoryDaoImpl">
+		<property name="userMap">
+			<value>
+				palmerd=4moreyears,disabled,ROLE_PRESIDENT
+				bauerj=ineedsleep,ROLE_FIELD_OPS
+				obrianc=nosmile,ROLE_SR_ANALYST,ROLE_OPS
+				myersn=traitor,disabled,ROLE_CENTRAL_OPS
+			</value>
+		</property>
+	</bean>
+
+</beans>	
