@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Hibernate Standalone"
+<project name="AuctionWeb"
          basedir=".">
 		 <property name="warDir" value="war"/>
          <property name="srcDir" value="src/"/>
@@ -56,7 +56,7 @@
          		</classpath>
          	</java>
          </target>
-		<target name="deploywar" depends="compile" description="Deploy application as a WAR file">
+		<target name="deploywar" depends="compile" >
 			<war destfile="testapp1.war" webxml="${warDir}/WEB-INF/web.xml">
 				<fileset dir="${warDir}">
 					<include name="**/*.*"/>
@@ -64,7 +64,7 @@
 			</war>
 		</target>
 			
-	<target name="deploy" depends="deploywar">
+	<target name="deploy" depends="deploywar" description="Use this to deploy">
 		<copy toDir="${appserver.home}/webapps">
 			<fileset dir=".">
                 <include name="*.war"/>
@@ -72,14 +72,14 @@
 		</copy>
 	</target>
 	
-    <target name="start" depends="deleteTomcatLogs" description="Start Tomcat application">
+    <target name="start" depends="deleteTomcatLogs">
         <start url="${tomcat.manager.url}"
                  username="${tomcat.manager.username}"
                  password="${tomcat.manager.password}"
                  path="/${appname}"/>
     </target>
 
-    <target name="stop" description="Stop Tomcat application">
+    <target name="stop">
         <stop url="${tomcat.manager.url}"
                  username="${tomcat.manager.username}"
                  password="${tomcat.manager.password}"
