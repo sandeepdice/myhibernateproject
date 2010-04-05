@@ -23,7 +23,7 @@
 	<bean id="authenticationProcessingFilter" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
 		<property name="filterProcessesUrl" value="/j_acegi_security_check" />
 		<property name="authenticationFailureUrl" value="/login.htm?login_error=1" />
-		<property name="defaultTargetUrl" value="/" />
+		<property name="defaultTargetUrl" value="/hello.htm" />
 		<property name="authenticationManager" ref="authenticationManager"/>
 	</bean>	
 	
