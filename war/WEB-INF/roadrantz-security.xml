@@ -9,7 +9,7 @@
 			<value>
 				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
 				PATTERN_TYPE_APACHE_ANT
-				/**=httpSessionIntegrationFilter,authenticationProcessingFilter
+				/**=httpSessionIntegrationFilter,authenticationProcessingFilter,exceptionTranslationFilter
 			</value>
 		</property>
 	</bean>
@@ -20,9 +20,12 @@
 			<property name="forceHttps" value="true" />
 		-->
 	</bean>	
+	<bean id="exceptionTranslationFilter" class="org.acegisecurity.ui.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
+	</bean>	
 	<bean id="authenticationProcessingFilter" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
 		<property name="filterProcessesUrl" value="/j_acegi_security_check" />
-		<property name="authenticationFailureUrl" value="/login.htm?login_error=1" />
+		<property name="authenticationFailureUrl" value="/login.htm?login_error=1" /> 
 		<property name="defaultTargetUrl" value="/hello.htm" />
 		<property name="authenticationManager" ref="authenticationManager"/>
 	</bean>	

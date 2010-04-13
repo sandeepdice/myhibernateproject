@@ -50,14 +50,25 @@
     <bean id="rantService" class="com.roadrantz.service.RantService"/>
     
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	<property name="prefix">
-		<value>/WEB-INF/jsp/</value>	
-	</property>
-	<property name="suffix">
-		<value>.jsp</value>
-	</property>
+	<!--
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>	
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	-->
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles.TilesView"/>
 	</bean>
 	
-	    <bean id="multipartResolver"
-        class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+        
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/roadrantz-tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+        
 </beans>
