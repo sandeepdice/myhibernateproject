@@ -4,9 +4,7 @@
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 
 <form action="/login.htm" method="post">
-<head><title>Auction</title></head>
 <body>
-<h2>Welcome to Auction Site!</h2>
 <h3>Category List:</h3>
 <logic:iterate id="category" name="rants" type="standalone.beans.Category">
 	<logic:equal name="category" property="parentCategoryId" value="0">

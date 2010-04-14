@@ -6,7 +6,7 @@
 	<body>
 		<table width="100%" border="0">
 			<tr>
-				<td><tiles:insert name="header"/></td> 
+				<td><h1><tiles:getAsString name="header"/></h1></td> 
 			</tr>
 			<tr>
 				<td valign="top" align="left">

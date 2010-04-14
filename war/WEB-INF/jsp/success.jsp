@@ -4,7 +4,6 @@
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 
 <html>
-	<head><title>Rantz</title></head>
 	<body>
 		Your Last Action Successful
 		<br/>

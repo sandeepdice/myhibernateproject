@@ -5,13 +5,44 @@
 
 <tiles-definitions>
 	<definition name="template" page="/WEB-INF/jsp/rantzTemplate.jsp">
-		<put name="title" value="Default Title"/>
-		<put name="header" value="/WEB-INF/jsp/header.jsp"/>
+		<put name="header" value="Header"/>
+		<put name="title" value="Auction"/>
 		<put name="content" value="/WEB-INF/jsp/defaultContentPage.jsp"/>
 		<put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
 	</definition>
 	<definition name="home" extends="template">
-		<put name="title" value="Welcome to RoadRantz" />
+		<put name="title" value="Welcome to Auction Website" />
+		<put name="header" value="Welcome to Auction Website" />
 		<put name="content" value="/WEB-INF/jsp/home.jsp"/>
+	</definition>
+	<definition name="itemsByCategory" extends="template">
+		<put name="title" value="Items by Category" />
+		<put name="header" value="Items by Category" />
+		<put name="content" value="/WEB-INF/jsp/itemsByCategory.jsp"/>
+	</definition>		
+	<definition name="itemList" extends="template">
+		<put name="title" value="Items List" />
+		<put name="header" value="Items List" />
+		<put name="content" value="/WEB-INF/jsp/itemList.jsp"/>
+	</definition>
+	<definition name="success" extends="template">
+		<put name="title" value="Last Action Succeeded" />
+		<put name="header" value="Last Action Succeeded" />
+		<put name="content" value="/WEB-INF/jsp/success.jsp"/>
+	</definition>
+	<definition name="addItem" extends="template">
+		<put name="title" value="Add Item" />
+		<put name="header" value="Add Item" />
+		<put name="content" value="/WEB-INF/jsp/addItem.jsp"/>
+	</definition>	
+	<definition name="updateItemResource" extends="template">
+		<put name="title" value="Update Item" />
+		<put name="header" value="Update Item" />
+		<put name="content" value="/WEB-INF/jsp/updateItemResource.jsp"/>
+	</definition>
+	<definition name="login" extends="template">
+		<put name="title" value="Login" />
+		<put name="header" value="Login" />
+		<put name="content" value="/WEB-INF/jsp/login.jsp"/>
 	</definition>	
 </tiles-definitions>

@@ -19,7 +19,6 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,lo
 </script>
 
 <form action="/login.htm" method="post">
-<head><title>Rantz</title></head>
 <body>
 <h2>Category Details: </h2>
 <bean:define id="myMap" name="categoryItemsMap" type="java.util.Map"/>

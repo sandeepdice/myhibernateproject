@@ -4,7 +4,6 @@
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 
 <form action="/login.htm" method="post">
-<head><title>Item List</title></head>
 <body>
 
 <table border="1">
