@@ -4,11 +4,22 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.Vector;
 
 import org.omg.CORBA.CharSeqHolder;
+
+class MyException extends RuntimeException
+{
+	
+}
+
+class ExceptionA extends Exception{}
+class ExceptionB extends ExceptionA{}
+
 
 public class AddLineNumbers {
 	static char[] findChar = {','};
@@ -20,6 +31,34 @@ public static void main(String[] args) throws FileNotFoundException {
 	String nextLine;
 	int categoryLine=0;
 	boolean masterCategory = false;
+	boolean[] x = new boolean[10];
+	System.out.println("boolean primitive: "+x[0]);
+	Boolean[] boolArray = new Boolean[10];
+	System.out.println("boolean object: "+boolArray[0]);
+	
+	Vector v = new Vector(10);
+	v.add(new Integer(2));
+	System.out.println(v.elementAt(0));
+	
+	HashSet myset = new HashSet();
+	myset.add(new Integer(2));
+	myset.add(new Integer(2));
+	System.out.println("HashSet size: "+myset.size());
+	
+	try
+	{
+		throw new NullPointerException();
+	}
+	catch(NullPointerException e)
+	{
+		
+	}
+	finally
+	{
+		throw new NullPointerException();
+	}
+	
+	
 	/*
 	while(scanner.hasNextLine())
 	{
@@ -46,7 +85,7 @@ public static void main(String[] args) throws FileNotFoundException {
 		}
 	} 
 	*/
-	System.out.println(parseFile("resources/category.data"));
+//	System.out.println(parseFile("resources/category.data"));
 }
 static List<List> parseFile(String fileName) {
 	String nextLine;
