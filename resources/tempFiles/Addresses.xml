@@ -1,0 +1,21 @@
+<addresses>
+ 	 <address>
+    <addressLine1>101 blvd</addressLine1>
+  </address>
+  <address>
+    <addressLine1>Author 2</addressLine1>
+  </address>
+ 
+  <person>
+    <name>Megha</name>
+    <detail age="22">
+      <education>PT</education>
+    </detail>
+  </person>
+  <person>
+    <name>person 2</name>
+    <detail age="32">
+      <education>engineer</education>
+    </detail>
+  </person>
+</addresses>
