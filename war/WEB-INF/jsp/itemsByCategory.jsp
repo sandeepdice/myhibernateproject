@@ -54,8 +54,6 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,lo
 			</logic:notEmpty>
 	</logic:equal>	
 </logic:iterate>
-<br/>
-<a href="<%=request.getContextPath()%>/login.htm">Login</a>
-<a href="<%=request.getContextPath()%>/hello.htm">Login</a>
+
 </body>
 </form>
