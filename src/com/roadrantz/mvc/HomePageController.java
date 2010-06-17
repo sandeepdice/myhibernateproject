@@ -19,7 +19,7 @@ public class HomePageController extends AbstractController {
 	public HomePageController() {}
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		List categoryList = categoryDao.getAllCategory();
-		logger.info("Processing HomePageController request");
+		logger.info("** From Log4j Processing HomePageController request");
 		return new ModelAndView("home", "rants", categoryList);
 	}
 	private RantService rantService;
