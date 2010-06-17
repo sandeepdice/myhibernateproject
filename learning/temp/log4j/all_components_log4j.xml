@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="fwk_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/fwk_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+    <appender name="dummySubscriberComponent2_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/dummySubscriberComponent2.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+        	<!-- <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %m%n" /> -->
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="ebk_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/ebk_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+   <appender name="es_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/es_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+  <appender name="iep_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/iep_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+  <appender name="aof_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/aof_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+  <appender name="fof_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/fof_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+   <appender name="cfg_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/cfg_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+  <appender name="dbl_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/dbl_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+  <appender name="agg_sqf_1_1_1_appender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+        <param name="File" value="C:/caaf/logs/agg_sqf_1_1_1.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="5000KB" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss z} [%-30t] %-5p %m%n" />
+        </layout>
+  </appender>
+
+    <logger additivity="false" name="es_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="es_sqf_1_1_1_appender" />
+  </logger>
+
+  <logger additivity="false" name="iep_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="iep_sqf_1_1_1_appender" />
+  </logger>
+
+  <logger additivity="false" name="sdfa_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="iep_sqf_1_1_1_appender" />
+  </logger>
+
+  <logger additivity="false" name="cdfa_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="iep_sqf_1_1_1_appender" />
+  </logger>
+
+   <logger additivity="false" name="ebk_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="ebk_sqf_1_1_1_appender" />
+  </logger>
+
+  <logger additivity="false" name="cfg_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="cfg_sqf_1_1_1_appender" />
+  </logger>
+
+  <logger additivity="false" name="dbl_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="dbl_sqf_1_1_1_appender" />
+  </logger>
+
+   <logger additivity="false" name="agg_sqf_1_1_1">
+        <level value="INFO" />
+        <appender-ref ref="agg_sqf_1_1_1_appender" />
+  </logger>
+  
+    <logger additivity="false" name="dummySubscriberComponent2">
+        <level value="INFO" />
+        <appender-ref ref="dummySubscriberComponent2_appender" />
+  </logger>
+  <root>
+        <priority value ="info"/>
+        <appender-ref ref="fwk_sqf_1_1_1_appender"/>
+  </root>
+
+
+
+</log4j:configuration>
