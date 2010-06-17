@@ -27,9 +27,7 @@ public class Log4jInit extends HttpServlet {
     }
 //    logger.info("log4j initialized");
     logger = LogManager.getLogger("file");
-    System.out.println(logger);
-    logger.trace("log4j initialized");
-    logger.debug("log4j initialized");
+    System.out.println(logger);;
     logger.info("log4j initialized");
   }
 
