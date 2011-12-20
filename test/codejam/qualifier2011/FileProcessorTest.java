@@ -1,4 +1,4 @@
-package codejam;
+package codejam.qualifier2011;
 
 import java.io.FileNotFoundException;
 
@@ -6,6 +6,7 @@ import junit.framework.Assert;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 
 
 public class FileProcessorTest {
