@@ -18,14 +18,14 @@ public class FileProcessorTest {
 	@Test
 	public void sizeTest() throws FileNotFoundException
 	{
-		fp = new FileProcessor("c:\\sandeep\\personal\\codejam\\A-small-practice.in");
+		fp = new FileProcessor("resources\\A-small-practice.in");
 		Assert.assertEquals(20, fp.processFile().numberOfCases);
 	}
 	
 	@Test
 	public void contentTest() throws FileNotFoundException
 	{
-		fp = new FileProcessor("c:\\sandeep\\personal\\codejam\\A-small-practice.in");
+		fp = new FileProcessor("resources\\A-small-practice.in");
 		BotTests tests = fp.processFile();
 		
 		Assert.assertTrue(tests.numberOfCases == 20);
@@ -58,7 +58,7 @@ public class FileProcessorTest {
 	{
 		// 10 O 36 B 64 B 72 O 42 B 1 O 34 O 64 O 88 B 42 O 71
 		
-		fp = new FileProcessor("c:\\sandeep\\personal\\codejam\\A-small-practice.in");
+		fp = new FileProcessor("resources\\A-small-practice.in");
 		BotTests tests = fp.processFile();
 		
 		BotTest test1 = tests.botTests.get(19);
@@ -110,11 +110,11 @@ public class FileProcessorTest {
 	@Test
 	public void simpleTest() throws FileNotFoundException
 	{
-		fp = new FileProcessor("c:\\sandeep\\personal\\codejam\\simple.txt");
+		fp = new FileProcessor("resources\\simple.txt");
 		BotTests tests = fp.processFile();
 		
-		Assert.assertTrue(tests.numberOfCases == 1);
-		Assert.assertTrue(tests.botTests.size() == 1);
+		Assert.assertTrue(tests.numberOfCases == 3);
+		Assert.assertTrue(tests.botTests.size() == 3);
 		
 		BotTest test1 = tests.botTests.get(0);
 		Assert.assertNotNull(test1);

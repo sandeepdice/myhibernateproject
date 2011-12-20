@@ -38,12 +38,26 @@ public class FileProcessor
 		BotTest test = new BotTest();
 		test.numberOfButtonsToPress = Integer.parseInt(eventArr[0]);
 		int index = 1;
+		Tuple prev = null;
+		Tuple BEGIN = new Tuple();
+		BEGIN.name = "BEGIN";
 		while (index < eventArr.length)
 		{
 			Tuple tuple = new Tuple();
+			if (prev != null) 
+				tuple.prev = prev;
+			else
+				tuple.prev = BEGIN;
 			tuple.name = eventArr[index++];
 			tuple.position = Integer.parseInt(eventArr[index++]);
 			test.addTuple(tuple);
+			if(tuple.name.equals("O")) {
+				test.addOrangeTuple(tuple);
+			}
+			else {
+				test.addBlueTuple(tuple);
+			}
+			prev = tuple;
 		}
 		
 		return test;

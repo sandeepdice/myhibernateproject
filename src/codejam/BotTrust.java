@@ -1,6 +1,7 @@
 package codejam;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class BotTrust {
 	FileProcessor fp;
@@ -12,7 +13,7 @@ public class BotTrust {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		BotTrust instance = new BotTrust("c:\\sandeep\\personal\\codejam\\test1.txt");
+		BotTrust instance = new BotTrust("resources\\simple.txt");
 		BotTests tests = instance.processFile(instance.fileName);
 		
 		Bot orangeBot = new BotImpl("O", 1);
@@ -28,18 +29,20 @@ public class BotTrust {
 			System.out.println("*****************************************************");
 			orangeBot.restPositions();
 			blueBot.restPositions();
+			orangeBot.setProcessList(test.getOrangeBots());
+			blueBot.setProcessList(test.getBlueBots());
+			
 			
 			for(Tuple tuple : test.positions)
 			{
-				while(!(orangeBot.isPressed() || blueBot.isPressed()))
+				while(!tuple.isDone())
 				{
-					itrCounter++;
-					orangeBot.processInput(tuple);
-					blueBot.processInput(tuple);
+					boolean orangeDone = orangeBot.process();
+					boolean blueDone = blueBot.process();
+					if(orangeDone) orangeBot.press(orangeBot.getCurrentIndex());
+					if(blueDone) blueBot.press(blueBot.getCurrentIndex());
 					System.out.printf("%25s | %25s\n", orangeBot, blueBot);
 				}
-				orangeBot.resetPressed();
-				blueBot.resetPressed();
 			}
 			System.out.println("Case #"+(testCounter++)+ " " + itrCounter);
 		}
@@ -55,76 +58,83 @@ public class BotTrust {
 
 interface Bot
 {
-	void processInput(Tuple tuple);
+	boolean process();
+	void press(int currentIndex);
 	void restPositions();
-	boolean isPressed();
-	void resetPressed();
-	void setNextPosition(Tuple tuple);
+	void setProcessList(ArrayList<Tuple> processList);
+	int getCurrentIndex();
 }
 
 class BotImpl implements Bot
 {
+	ArrayList<Tuple> processList;
 	boolean pressed = false;
 	String name;
 	int requestedPosition;
 	int currentPosition;
 	String currentRequestedBot;
 	String currentStatus;
-	
+	int currentIndex = 0;
+
+	public void setProcessList(ArrayList<Tuple> processList) {
+		this.processList = processList;
+	}
+
 	public BotImpl(String name, int initPosition) {
 		this.name = name;
 		this.requestedPosition = initPosition;
 	}
 	
 	@Override
-	public boolean isPressed() {
-		return (pressed == true);
-	}
-
-	@Override
-	public void processInput(Tuple tuple) {
+	public boolean process() {
 		
-		this.setNextPosition(tuple);
+		Tuple tuple = processList.get(currentIndex);
 		
-		if(currentPosition < requestedPosition)
+		if(currentPosition < tuple.position)
 		{
 			currentPosition++;
 			currentStatus = "moved to position: " + currentPosition;
 		}
-		else if(currentPosition == requestedPosition && currentRequestedBot.equals(name))
+		else if(currentPosition == tuple.position && ((tuple.prev.name.equals("BEGIN") || tuple.prev.isDone())))
 		{
-			pressed = true;
-			currentStatus = "pressed button " + requestedPosition;
+			return true;
 		}
-		else if(currentPosition > requestedPosition)
+		else if(currentPosition > tuple.position)
 		{
 			currentPosition--;
 			currentStatus = "moved to position: " + currentPosition;
 		}
-	}
-
-	@Override
-	public void resetPressed() {
-		pressed = false;
-	}
-
-	@Override
-	public void setNextPosition(Tuple tuple) {
-		if (tuple.name.equalsIgnoreCase(name))
+		else
 		{
-			this.currentRequestedBot = tuple.name;
-			this.requestedPosition = tuple.position;
+			currentStatus = "Waiting at: " + currentPosition;
 		}
+		return false;
 	}
-	
+
 	@Override
 	public String toString() {
 		return currentStatus;
 	}
 
 	@Override
-	public void restPositions() {
+	public void restPositions() 
+	{
 		this.currentPosition = this.requestedPosition = 1;
-		pressed = false; currentRequestedBot = name;
+		this.currentIndex = 0;
+		pressed = false; currentRequestedBot = name; 
 	}
+
+	@Override
+	public int getCurrentIndex() {
+		return currentIndex;
+	}
+	
+	@Override
+	public void press(int currentIndex) {
+		Tuple tuple = processList.get(currentIndex);
+		tuple.done = true;
+		currentStatus = "pressed button " + currentIndex;
+		this.currentIndex++;
+	}
+
 }
