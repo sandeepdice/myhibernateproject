@@ -13,7 +13,7 @@ public class BotTrust {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		BotTrust instance = new BotTrust("resources\\codejam\\qualifier2011\\A-large-practice.in");
+		BotTrust instance = new BotTrust("resources\\codejam\\qualifier2011\\robo\\A-large-practice.in");
 		BotTests tests = instance.processFile(instance.fileName);
 		
 		Bot orangeBot = new BotImpl("O", 1);
