@@ -8,6 +8,9 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean> 
 	
+	<bean id="employeeDao" class="hibernatebook.ch01.dao.HibernateEmployeeDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 		
 	<bean id="itemDao" class="com.roadrantz.dao.ItemSpringJdbcDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
@@ -36,5 +39,31 @@
     
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="myDataSource"/>
+    </bean>
+    
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="myDataSource"/>
+    	<property name="mappingResources">
+    		<list>
+    			<value>/hbmfiles/UserInfo.hbm.xml</value>
+    		</list>
+    	</property>
+    	<property name="hibernateProperties">
+    		<props>
+    			<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+    		</props>
+    	</property>
+    </bean>
+    
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="locations">
+    		<list>
+    			<value>/WEB-INF/resources/hibernate.properties</value>
+    		</list>
+    	</property>
     </bean>
 </beans>	

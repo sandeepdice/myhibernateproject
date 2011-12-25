@@ -25,6 +25,16 @@
 		<put name="header" value="Items List" />
 		<put name="content" value="/WEB-INF/jsp/itemList.jsp"/>
 	</definition>
+	<definition name="searchEmployee" extends="template">
+		<put name="title" value="Employee List" />
+		<put name="header" value="Employee List" />
+		<put name="content" value="/WEB-INF/jsp/searchEmployee.jsp"/>
+	</definition>	
+	<definition name="employeeList" extends="template">
+		<put name="title" value="Employee List" />
+		<put name="header" value="Employee List" />
+		<put name="content" value="/WEB-INF/jsp/employeeList.jsp"/>
+	</definition>	
 	<definition name="success" extends="template">
 		<put name="title" value="Last Action Succeeded" />
 		<put name="header" value="Last Action Succeeded" />
@@ -34,6 +44,11 @@
 		<put name="title" value="Add Item" />
 		<put name="header" value="Add Item" />
 		<put name="content" value="/WEB-INF/jsp/addItem.jsp"/>
+	</definition>	
+	<definition name="addEmployee" extends="template">
+		<put name="title" value="Add Employee" />
+		<put name="header" value="Add Employee" />
+		<put name="content" value="/WEB-INF/jsp/addEmployee.jsp"/>
 	</definition>	
 	<definition name="updateItemResource" extends="template">
 		<put name="title" value="Update Item" />

@@ -4,6 +4,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+       
     <bean name="/hello.htm" class="com.roadrantz.mvc.HomePageController">
         <property name="rantService" ref="rantService"/>
         <property name="categoryDao" ref="categoryDao"/>
@@ -30,6 +31,12 @@
     	<property name="resDao" ref="resourceDao"/>  
     </bean> 
     
+    <bean name="/addEmployee.htm" class="com.roadrantz.mvc.AddEmployeeController">
+    	<property name="formView" value="addEmployee"/>
+    	<property name="successView" value="success"/>
+    	<property name="hibernateEmployeeDao" ref="employeeDao"/>
+    </bean> 
+    
     <bean name="/updateResource.htm"  class="com.roadrantz.mvc.UpdateItemResourceController">
     	<property name="formView" value="updateItemResource"/>
     	<property name="categoryDao" ref="categoryDao"/>
@@ -46,6 +53,12 @@
     <bean name="/getItemList.htm" class="com.roadrantz.mvc.ItemListController">
     	<property name="itemListDao" ref="itemListDao"/> 
     </bean>    
+    
+    <bean name="/getEmpList.htm" class="com.roadrantz.mvc.EmployeeListController">
+    	<property name="formView" value="searchEmployee"/>
+    	<property name="hibernateEmployeeDao" ref="employeeDao"/>
+    	<property name="successView" value="employeeList"/>
+    </bean>  
         
     <bean id="rantService" class="com.roadrantz.service.RantService"/>
     

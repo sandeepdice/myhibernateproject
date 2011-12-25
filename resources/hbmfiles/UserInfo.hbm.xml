@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="hibernatebook.ch01.UserInfo" table="UserInfo_TBL">
+		<id name="userID" column="userID" type="java.lang.Long" unsaved-value="0">
+			<generator class="identity"/>
+		</id>
+		<property name="firstName" column="firstName" type="java.lang.String"/>
+		<property name="lastName" column="lastName" type="java.lang.String"/>
+		<property name="age" column="age" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

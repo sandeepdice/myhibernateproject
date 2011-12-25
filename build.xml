@@ -38,14 +38,19 @@
          	<mkdir dir="${binDir}/standalone"/>
 			<mkdir dir="${binDir}/META-INF"/>
 			<mkdir dir="${warDir}/WEB-INF/resources"/>
+			<mkdir dir="${warDir}/WEB-INF/classes/hbmfiles"/>
 			<mkdir dir="${warDir}/WEB-INF/log"/>
 			<copy file="${resDir}/beans.xml" toDir="${binDir}/META-INF"/>
          	<copy file="${resDir}/jdbc.properties" toDir="${binDir}"/>
+			<copy file="${resDir}/hibernate.properties" toDir="${warDir}/WEB-INF/resources"/>
 			<copy file="${resDir}/jdbc.properties" toDir="${warDir}/WEB-INF/resources"/>
 			<copy file="${resDir}/log4j.properties" toDir="${warDir}/WEB-INF/classes"/>
 			<copy toDir="${warDir}/WEB-INF/resources/Images">
 				<fileset dir="${resDir}/Images" includes="**/*"/>
 			</copy>
+			<copy toDir="${warDir}/WEB-INF/classes/hbmfiles">
+				<fileset dir="${resDir}/hbmfiles" includes="**/*"/>
+			</copy>			
          </target> 
 	
          <target name="run" depends="compile">
