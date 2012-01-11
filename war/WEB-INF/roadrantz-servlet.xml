@@ -36,6 +36,18 @@
     	<property name="successView" value="success"/>
     	<property name="hibernateEmployeeDao" ref="employeeDao"/>
     </bean> 
+
+    <bean name="/addEmployeeForm2.htm" class="com.roadrantz.mvc.AddEmployeeController">
+    	<property name="formView" value="addEmployee"/>
+    	<property name="successView" value="success"/>
+    	<property name="hibernateEmployeeDao" ref="employeeDao"/>
+    </bean>
+
+    <bean name="/addEmployeeMultipleForm.htm" class="com.roadrantz.mvc.AddEmployeeController">
+    	<property name="formView" value="addEmployeeMultipleForm"/>
+    	<property name="successView" value="success"/>
+    	<property name="hibernateEmployeeDao" ref="employeeDao"/>
+    </bean> 
     
     <bean name="/updateResource.htm"  class="com.roadrantz.mvc.UpdateItemResourceController">
     	<property name="formView" value="updateItemResource"/>

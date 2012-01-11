@@ -49,7 +49,12 @@
 		<put name="title" value="Add Employee" />
 		<put name="header" value="Add Employee" />
 		<put name="content" value="/WEB-INF/jsp/addEmployee.jsp"/>
-	</definition>	
+	</definition>
+	<definition name="addEmployeeMultipleForm" extends="template">
+		<put name="title" value="Add Employee" />
+		<put name="header" value="Add Employee" />
+		<put name="content" value="/WEB-INF/jsp/addEmployeeMultipleForm.jsp"/>
+	</definition>			
 	<definition name="updateItemResource" extends="template">
 		<put name="title" value="Update Item" />
 		<put name="header" value="Update Item" />

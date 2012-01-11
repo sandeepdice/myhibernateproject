@@ -75,6 +75,7 @@
                 <include name="*.war"/>
             </fileset>
 		</copy>
+		<echo>"Use homepage link: http://localhost:8080/testapp1/hello.htm"</echo>
 	</target>
 	
     <target name="start" depends="deleteTomcatLogs">
