@@ -21,13 +21,13 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.10-bin.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring.jar" sourcepath="C:/Program Files/Java/external-libs/spring-framework-2.5/src"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts-1.2.7.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.1.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-api.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-api.jar" sourcepath="C:/Program Files/Java/external-libs/commons-logging-1.1.1/site"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/acegi-security-1.0.7.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-2.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-2.0.jar" sourcepath="C:/Program Files/Java/external-libs/spring-framework-2.5/src"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-digester-2.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/mockito-all-1.8.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/junit.jar"/>

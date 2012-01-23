@@ -10,6 +10,12 @@
 		<put name="content" value="/WEB-INF/jsp/defaultContentPage.jsp"/>
 		<put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
 	</definition>
+	<definition name="templateDiv" page="/WEB-INF/jsp/rantzDivTemplate.jsp">
+		<put name="header" value="Header"/>
+		<put name="title" value="Auction"/>
+		<put name="content" value="/WEB-INF/jsp/defaultContentPage.jsp"/>
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+	</definition>	
 	<definition name="home" extends="template">
 		<put name="title" value="Welcome to Auction Website" />
 		<put name="header" value="Welcome to Auction Website" />
@@ -30,10 +36,11 @@
 		<put name="header" value="Employee List" />
 		<put name="content" value="/WEB-INF/jsp/searchEmployee.jsp"/>
 	</definition>	
-	<definition name="employeeList" extends="template">
+	<definition name="employeeList" extends="templateDiv">
 		<put name="title" value="Employee List" />
 		<put name="header" value="Employee List" />
-		<put name="content" value="/WEB-INF/jsp/employeeList.jsp"/>
+		<put name="left" value="/WEB-INF/jsp/employeeList.jsp"/>
+		<put name="right" value="/WEB-INF/jsp/employeeList.jsp"/>
 	</definition>	
 	<definition name="success" extends="template">
 		<put name="title" value="Last Action Succeeded" />
