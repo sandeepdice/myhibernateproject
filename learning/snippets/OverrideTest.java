@@ -1,6 +1,6 @@
 package snippets;
 
-public class Override {
+public class OverrideTest {
 
 }
 
