@@ -62,7 +62,7 @@
          	</java>
          </target>
 		<target name="deploywar" depends="compile" >
-			<war destfile="testapp1.war" webxml="${warDir}/WEB-INF/web.xml">
+			<war destfile="auction.war" webxml="${warDir}/WEB-INF/web.xml">
 				<fileset dir="${warDir}">
 					<include name="**/*.*"/>
 				</fileset>
@@ -75,7 +75,7 @@
                 <include name="*.war"/>
             </fileset>
 		</copy>
-		<echo>"Use homepage link: http://localhost:8080/testapp1/hello.htm"</echo>
+		<echo>"Use homepage link: http://localhost:8080/auction/hello.htm"</echo>
 	</target>
 	
     <target name="start" depends="deleteTomcatLogs">
