@@ -21,7 +21,7 @@ public class HelloWorldJDom {
 	 */
 	public static void main(String[] args) throws JDOMException, IOException {
 		SAXBuilder builder = new SAXBuilder();
-		Document doc = builder.build(new FileInputStream("NewFile.xml"));
+		Document doc = builder.build(new FileInputStream("build.xml"));
 		Element re = doc.getRootElement();
 		List children = re.getChildren("path");
 		Iterator iter = children.iterator();

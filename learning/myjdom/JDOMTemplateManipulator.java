@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -20,28 +21,19 @@ public class JDOMTemplateManipulator {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws JDOMException, IOException {
+		System.out.println("test");
 		SAXBuilder builder = new SAXBuilder();
-		Element el = createElement();
-		System.out.println(el.getText());
-		/*
 		Document doc = builder.build(new FileInputStream("resources/template/user_template_files/operations.xml"));
-		Element re = doc.getRootElement();
-		List children = re.getChildren("customContextMenus");
-		Iterator iter = children.iterator();
 		
+		Element rootElement = doc.getRootElement();
+		Element customContextMenus = rootElement.getChild("customContextMenus");
 		
-		while(iter.hasNext())
-		{
-			Element pathElement = (Element) iter.next();
-			pathElement.addContent(el);
-			pathElement.setAttribute("test", "value");
-			System.out.println(pathElement.getAttributeValue("id"));
-		}
+		Element newCanvasMenus = createElement();
+		
+		customContextMenus.addContent(newCanvasMenus);
 		
 		XMLOutputter outp = new XMLOutputter();
 		outp.output(doc, System.out);
-		*/
-		
 	}
 
 	private static Element createElement() {
@@ -53,8 +45,6 @@ public class JDOMTemplateManipulator {
 		Element e1 = new Element("canvasMenus");
 		e1.setAttribute("type", "single");
 		e1.addContent(e);
-		
-		System.out.println(e1.getText());
 		return e1;
 	}
 
