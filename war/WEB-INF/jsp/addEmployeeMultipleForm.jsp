@@ -15,7 +15,7 @@
 			Car Type: <input type="text" name="carType"/> <br/>
 			<input type="submit"/><br/>			
 		</form>
-		<form method="post" action="<%=request.getContextPath()%>/addEmployeeForm2.htm" enctype="multipart/form-data">
+		<form method="post" action="<%=request.getContextPath()%>/addEmployee1.htm" enctype="multipart/form-data">
 			<br/>
 			First Name: <input type="text" name="firstName"/><br/>
 			Last Name: <input type="text" name="lastName"/><br/>

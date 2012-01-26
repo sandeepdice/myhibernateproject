@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page version="1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://localhost:16722/kpiw-as/xsd/pageConfig.xsd">
+	<layout>
+		<col>
+
+			<row percentWidth="33">
+
+				<container type="accordion" percentHeight="45">
+					<canvas type="events" />
+				</container>
+
+				<canvas type="multiTree" />
+
+			</row>
+
+			<canvas type="chart" />
+
+		</col>
+	</layout>
+
+	<customContextMenus>
+		<canvasMenus type="events">
+			<menu name="viewNodeInfo" menuLabel="View Node Information"
+				url="{baseURL}/ViewNodeInfo.html?host={host}&amp;fullname={fullname}" />
+			<menu name="chartNewWin" menuLabel="Display Chart In New Window"
+				url="{baseURL}/ChartViewer.html?host={host}&amp;id={pname}&amp;fullname={fullname}&amp;type={nodeType}" />
+		</canvasMenus>
+		<canvasMenus type="chart">
+			<menu name="viewNodeInfo" menuLabel="View Node Information"
+				url="{baseURL}/ViewNodeInfo.html?host={host}&amp;fullname={fullname}" />
+		</canvasMenus>
+		<canvasMenus type="tree">
+			<menu name="viewNodeInfo" menuLabel="View Node Information"
+				url="{baseURL}/ViewNodeInfo.html?host={host}&amp;fullname={fullname}&amp;proxy_host={proxy_host}&amp;proxy_fullname={proxy_fullname}" />
+			<menu name="chartNewWin" menuLabel="Display Chart In New Window"
+				url="{baseURL}/ChartViewer.html?host={host}&amp;id={pname}&amp;fullname={fullname}&amp;type={nodeType}" />
+		</canvasMenus>
+		<canvasMenus type="favorites">
+			<menu name="viewNodeInfo" menuLabel="View Node Information"
+				url="{baseURL}/ViewNodeInfo.html?host={host}&amp;fullname={fullname}" />
+			<menu name="chartNewWin" menuLabel="Display Chart In New Window"
+				url="{baseURL}/ChartViewer.html?host={host}&amp;id={pname}&amp;fullname={fullname}&amp;type={nodeType}" />
+		</canvasMenus>
+	</customContextMenus>
+
+	<chartLayouts>
+		<chartLayout type="cascade">
+			<configParams>
+				<param name="default" value="true" />
+				<param name="slideShow" value="false" />
+				<param name="maxNumCharts" value="8" />
+			</configParams>
+		</chartLayout>
+		<chartLayout type="horizontal">
+			<configParams>
+				<param name="slideShow" value="false" />
+				<param name="maxNumCharts" value="8" />
+			</configParams>
+		</chartLayout>
+		<chartLayout type="vertical">
+			<configParams>
+				<param name="allowSlideshow" value="false" />
+				<param name="maxNumCharts" value="8" />
+			</configParams>
+		</chartLayout>
+		<chartLayout type="flow">
+			<configParams>
+				<param name="slideShow" value="false" />
+				<param name="maxNumCharts" value="8" />
+			</configParams>
+		</chartLayout>
+		<chartLayout type="single">
+			<configParams>
+				<param name="navigationType" value="filmstrip" />
+				<param name="slideShow" value="true" />
+				<param name="maxNumCharts" value="10" />
+			</configParams>
+		</chartLayout>
+	</chartLayouts>
+
+	<chartNavigations>
+		<chartNavigation type="filmstrip">
+			<configParams>
+				<param name="navigationPosition" value="bottom" />
+				<param name="showPreview" value="true" />
+				<param name="previewSecondsDelay" value="3" />
+			</configParams>
+		</chartNavigation>
+		<chartNavigation type="floating">
+			<configParams>
+				<param name="navigationPosition" value="floatingTopBottom" />
+			</configParams>
+		</chartNavigation>
+	</chartNavigations>
+</page>
+
+<!-- DEFAULT VALUES -->
+<!-- Here are all available params and their default values. -->
+
+<!-- Many canvases have a set of internal actions which may be used as the 
+	default action. Here are the names each canvas provides to perform those 
+	tasks. favorites: deleteFavorite tree: clearVirtRoot, setVirtRoot chart: 
+	zoomIn, zoomOut, removeSeries -->
+
+<!-- <canvas type="tree"> <configParams> <param name="host" value="<host 
+	found in URL>" /> <param name="virtualRoot" value="" /> <param name="refreshInterval" 
+	value="300" /> <param name="sendLeftClickTo" value="chart" /> <param name="initialLoadDepth" 
+	value="3" /> <param name="lazyLoadDepth" value="3" /> </configParams> </canvas> -->
+
+<!-- <canvas type="multiTree"> <configParams> <param name="sendLeftClickTo" 
+	value="chart" /> <paramList name="trees"> <paramGroup> (same configuration 
+	as a single 'tree') </paramGroup> ... (there may be multiple trees) </paramList> 
+	</configParams> </canvas> -->
+
+<!-- <canvas type="events"> <configParams> <param name="host" value="<whatever 
+	trees are loaded>" /> <param name="sendLeftClickTo" value="chart" /> <param 
+	name="refreshInterval" value="300" /> <param name="timeFormat" value="<defaults 
+	to global timeFormat>" /> <param name="markColor" value="0x00FF00" /> <param 
+	name="showSeconds" value="false" /> <param name="showDay" value="false" /> 
+	<param name="visibleColumns" value="Icon,Time,Label"/> <param name="lastN" 
+	value="500" /> (if historyInSeconds is specified, lastN must ALSO be specified) 
+	<param name="historyInSeconds" value="<disabled>" /> </configParams> </canvas> -->
+
+<!-- <canvas type="favorites"> <configParams> <param name="file" value="favorites.xml" 
+	/> <param name="refreshInterval" value="300" /> <param name="sendLeftClickTo" 
+	value="chart" /> </configParams> </canvas> -->
+
+<!-- <canvas type="single" > <configParams> (configuration params for a single 
+	chart) </configParams> </canvas> -->
+
+<!-- <canvas type="chart"> <configParams> <param name="file" value="chartConfig.xml" 
+	/> <param name="sendLeftClickTo" value="zoomIn" /> <param name="askBeforeDestroying" 
+	value="true" /> <param name="defaultChartHeight" value="400" /> <param name="defaultChartWidth" 
+	value="400" /> <param name="maxNumCharts" value="8" /> <param name="chartLayout" 
+	value="window" /> <param name="rubberBandResize" value="false" /> <paramList 
+	name="charts"> <paramGroup> (configuration params for a single chart) </paramGroup> 
+	... (there may be multiple charts) </paramList> </configParams> </canvas> -->
+
+<!-- <canvas type="perf"> <configParams> <param name="maxDataPoints" value="500" 
+	/> </configParams> </canvas> -->
