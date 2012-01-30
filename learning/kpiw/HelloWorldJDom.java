@@ -1,4 +1,4 @@
-package myjdom;
+package kpiw;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
