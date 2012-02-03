@@ -8,23 +8,23 @@ public class NewAlgo {
 
 
 
-    StringBuilder InputStr= new StringBuilder("aaabbbcccccccccddd");
-    char last=InputStr.charAt(0);
+    StringBuilder inputStr= new StringBuilder("aaabbbcccccccccddd");
+    char last=inputStr.charAt(0);
     int count=1;
     int start=0;
     int end=0;
     int intern=0;
 
-    if(InputStr.length()<1)
+    if(inputStr.length()<1)
     {
-        System.out.println("Input String is empty"+InputStr);
+        System.out.println("Input String is empty"+inputStr);
         System.exit(1);
 
     }
 
-    for(int i=1;i<InputStr.length();i++)
+    for(int i=1;i<inputStr.length();i++)
     {
-    char next=InputStr.charAt(i);
+    char next=inputStr.charAt(i);
 
     if(last==next)
     count++;
@@ -32,7 +32,7 @@ public class NewAlgo {
     {
         end=count+start;
 
-        InputStr.replace(start, end, last+Integer.toString(count));
+        inputStr.replace(start, end, last+Integer.toString(count));
 
         count=1;
         start=start+2;
@@ -42,8 +42,8 @@ public class NewAlgo {
     last=next;
     }
 
-    InputStr.replace(start, InputStr.length(), last+Integer.toString(count));
-    System.out.println(InputStr);
+    inputStr.replace(start, inputStr.length(), last+Integer.toString(count));
+    System.out.println(inputStr);
 
 
     }
