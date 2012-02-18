@@ -29,10 +29,26 @@ public class Test {
 		
 		int a11=1; long b11=2;
 		System.out.println(m(a11) + ", " + m(b11));
+		
+		System.out.println(palindrom("level"));
+		
 	}
 
 	static String m(float x) {return "float";}
 	static String m(double x) {return "double";}
+	
+	static boolean palindrom(String s)
+	{
+		int length = s.length();
+		for(int i=0; i < length/2 ; i++)
+		{
+			if(s.charAt(i) == s.charAt(length-1-i))
+				continue;
+			else
+				return false;
+		}
+		return true;
+	}
 }
 
 interface A
