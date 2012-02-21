@@ -35,6 +35,17 @@ public class JDOMKPIWTemplatePatch {
 	static String ipAddress;
 	final static Format formatOmitDeclaration = Format.getRawFormat();
 	final static Format formatIncludeDeclaration = Format.getRawFormat();
+	final static String MENU = "menu";
+	final static String MENU_LABEL = "menuLabel";
+	final static String LAUNCH_KPIA = "Launch KPI-A";
+	final static String NAME = "name";
+	final static String KPIA = "kpia";
+	final static String URL = "url";
+	final static String CANVAS_MENUS = "canvasMenus";
+	final static String TYPE = "type";
+	final static String SINGLE = "single";
+	final static String CUSTOM_CONTEXT_MENUS = "customContextMenus";
+	final static String BACKUP_FOLDER_NAME = "IQ00211136_backup";
 	
 	public static void main(String[] args) throws JDOMException, IOException 
 	{
@@ -80,7 +91,7 @@ public class JDOMKPIWTemplatePatch {
 
 	private static boolean restoreTemplateFile(File[] templateFolderContents) throws IOException {
 		for (File dirContent : templateFolderContents) {
-			if (dirContent.getName().equals("IQ00211136_backup") && dirContent.isDirectory()) 
+			if (dirContent.getName().equals(BACKUP_FOLDER_NAME) && dirContent.isDirectory()) 
 			{
 				File[] backupDirContents = dirContent.listFiles();
 				for(File backupFile : backupDirContents)
@@ -111,7 +122,7 @@ public class JDOMKPIWTemplatePatch {
 		File[] userFiles = direcotry.listFiles();
 		for (File userFile : userFiles) 
 		{
-			if (userFile.getName().equals("IQ00211136_backup") && userFile.isDirectory()) 
+			if (userFile.getName().equals(BACKUP_FOLDER_NAME) && userFile.isDirectory()) 
 			{
 				File[] backupDirContents = userFile.listFiles();
 				for(File backupFile : backupDirContents)
@@ -141,7 +152,7 @@ public class JDOMKPIWTemplatePatch {
 
 	private static void updateTemplateFiles(File[] dirContents) throws JDOMException, IOException {
 		for (File dirContent : dirContents) {
-			if (dirContent.isDirectory()) {
+			if (dirContent.isDirectory() && !(dirContent.getName().endsWith(BACKUP_FOLDER_NAME))) {
 				outp.setFormat(formatOmitDeclaration);
 				processDirectory(dirContent);
 			}
@@ -168,31 +179,61 @@ public class JDOMKPIWTemplatePatch {
 		Element newCanvasMenus = createElement(ipAddress);
 		Document doc = builder.build(new FileInputStream(userFile));
 		
-		new File(userFile.getParentFile()+"/IQ00211136_backup").mkdir();
-		File backupFile = new File(userFile.getParentFile()+"/IQ00211136_backup/operations.xml"); 
-		
-		FileUtils.copyFile(userFile, backupFile, true);
-		
 		Element rootElement = doc.getRootElement();
-		Element customContextMenus = rootElement.getChild("customContextMenus");
+		Element customContextMenus = rootElement.getChild(CUSTOM_CONTEXT_MENUS);
+		
+		if(!checkLaunchKpiaMenuExists(customContextMenus))
+		{
+			new File(userFile.getParentFile()+"/" + BACKUP_FOLDER_NAME).mkdir();
+			File backupFile = new File(userFile.getParentFile()+"/" + BACKUP_FOLDER_NAME + "/operations.xml"); 
+			
+			FileUtils.copyFile(userFile, backupFile, true);
+			
+			customContextMenus.addContent(newCanvasMenus);
+			customContextMenus.addContent("\n");
 
-		customContextMenus.addContent(newCanvasMenus);
-		customContextMenus.addContent("\n");
+			outp.output(doc, new FileOutputStream(userFile));
+			System.out.println("File: " + userFile + " is updated & old version backed up to " + userFile.getParent()+"/" + BACKUP_FOLDER_NAME);			
+		}
+		else
+		{
+			System.out.println("File: " + userFile + " already contains "+ LAUNCH_KPIA +" menu. No update required");
+		}
+	}
 
-		outp.output(doc, new FileOutputStream(userFile));
-		System.out.println("File: " + userFile + " is updated & old version backed up to " + userFile.getParent()+"/IQ00211136_backup");
+	private static boolean checkLaunchKpiaMenuExists(Element customContextMenus) {
+		List<Element> list = customContextMenus.getChildren();
+		for(Element element : list)
+		{
+//			Element element = list.next();
+			if(element.getName()==CANVAS_MENUS && element.getAttribute(TYPE).getValue().equals(SINGLE))
+			{
+				List<Element> childList = element.getChildren();
+				for(Element childElement : childList)
+				{
+//					Element childElement = childIter.next();
+					if(childElement.getName().equals(MENU) && childElement.getAttribute(MENU_LABEL).getValue().equals(LAUNCH_KPIA) 
+							&& childElement.getAttribute(NAME).getValue().equals(KPIA) 
+							&& !(childElement.getAttribute(URL).getValue().isEmpty()))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private static Element createElement(String ipAddress) {
-		Element e = new Element("menu");
-		e.setAttribute("menuLabel", "Launch KPI-A");
-		e.setAttribute("name", "kpia");
+		Element e = new Element(MENU);
+		e.setAttribute(MENU_LABEL, LAUNCH_KPIA);
+		e.setAttribute(NAME, KPIA);
 		e.setAttribute(
-				"url",
+				URL,
 				"http://" + ipAddress +"/kpiwDrilldown.html?dmsHost={host}&qosmId={pname}&"
 						+ "startTime={chartStartSec}&endTime={chartEndSec}&selectedInterval={chartPointSec}&interval={chartIntervalSec}");
-		Element e1 = new Element("canvasMenus");
-		e1.setAttribute("type", "single");
+		Element e1 = new Element(CANVAS_MENUS);
+		e1.setAttribute(TYPE, SINGLE);
 		e1.addContent("\n");
 		e1.addContent(e);
 		e1.addContent("\n");
