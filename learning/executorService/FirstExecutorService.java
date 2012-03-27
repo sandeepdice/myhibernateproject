@@ -1,5 +1,7 @@
 package executorService;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
@@ -51,4 +53,10 @@ class task implements Runnable
 		this.waitDuration = duration;
 		this.name = threadName;
 	}
+}
+
+class TestClass 
+{
+	InputStream is;
+	BufferedInputStream buf;
 }
