@@ -17,6 +17,14 @@ public class WeakReferenceEnqueExample
 		// put the object in the ReferenceQueue
 		weakRef.enqueue();
 		
+		// The ReferenceQueue class makes it easy to keep track of dead references. 
+		// If you pass a ReferenceQueue into a weak reference's constructor, the reference 
+		// object will be automatically inserted into the reference queue when the object 
+		// to which it pointed becomes garbage. You can then, at some regular interval, process 
+		// the ReferenceQueue and perform whatever cleanup is needed for dead references.
+		
+		// We use same ReferenceQueue in application to track all dead weak references
+		
 		while (true)
 		{
 			// There will be returned "Help me" until the garbage collector will "kill"
