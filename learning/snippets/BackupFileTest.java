@@ -22,3 +22,13 @@ public class BackupFileTest {
 	}
 
 }
+
+class A12300
+{
+	static void method() {}
+}
+
+class B12300 extends A12300
+{
+	void method() {}
+}
