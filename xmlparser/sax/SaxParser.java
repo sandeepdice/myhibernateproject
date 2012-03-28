@@ -1,6 +1,5 @@
 package sax;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +39,8 @@ public class SaxParser extends DefaultHandler {
 			
 			parser.parse(new InputSource("input.xml"));
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -80,6 +77,16 @@ public class SaxParser extends DefaultHandler {
 		{
 			this.tblNameEncountered = true;
 		}
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
 	}
 	
 	public void characters(char ch[], int start, int length) throws SAXException {
