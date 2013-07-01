@@ -1,4 +1,4 @@
-package behavioral.methodtemplate;
+package behavioral.templatemethod;
 
 /**
  * Is "Template Method" more meaningful than "Method Template"? In template
