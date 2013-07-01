@@ -29,11 +29,16 @@ package behavioral.templatemethod;
  * HTTP 405 "Method Not Allowed" error to the response. You're free to implement
  * none or any of them.
  * 
+ * 4. Comparable Interface. compareTo method is exposed to user. This is not a
+ * textbook template method implementation but its designed in spirit of
+ * template method.
+ * 
  * @author ray55577
  * 
  */
 
 abstract class BevarageMaker {
+	/* this is the template method */
 	void prepareBevarage() {
 		boilWater();
 		addBeveragePowderAndBrew();
