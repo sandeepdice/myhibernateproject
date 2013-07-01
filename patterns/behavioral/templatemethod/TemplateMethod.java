@@ -1,9 +1,9 @@
 package behavioral.templatemethod;
 
 /**
- * Is "Template Method" more meaningful than "Method Template"? In template
- * method, we define steps of algorithm and allows subclass to provide
- * implementation for one or more steps.
+ * I guess "Template Method" more meaningful than "Method Template". In template
+ * method, we define steps of algorithm in abstract class and allows subclass to
+ * provide implementation for one or more steps.
  * 
  * This way, algorithm is protected in template method. Algorithm is not known
  * by specific classes.
@@ -20,10 +20,10 @@ package behavioral.templatemethod;
  * "default" behavior defined by an abstract type)
  * 
  * 1. All non-abstract methods of java.io.InputStream, java.io.OutputStream,
- * java.io.Reader and java.io.Writer. 
+ * java.io.Reader and java.io.Writer.
  * 
- * 2. All non-abstract methods of
- * java.util.AbstractList, java.util.AbstractSet and java.util.AbstractMap. 
+ * 2. All non-abstract methods of java.util.AbstractList, java.util.AbstractSet
+ * and java.util.AbstractMap.
  * 
  * 3. javax.servlet.http.HttpServlet, all the doXXX() methods by default sends a
  * HTTP 405 "Method Not Allowed" error to the response. You're free to implement
