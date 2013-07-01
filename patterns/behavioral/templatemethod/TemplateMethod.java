@@ -33,6 +33,10 @@ package behavioral.templatemethod;
  * textbook template method implementation but its designed in spirit of
  * template method.
  * 
+ * Another point is, template method is different from Strategy in a way that
+ * strategy deals with entire algorithm while template method deals only with
+ * steps of algorithm.
+ * 
  * @author ray55577
  * 
  */
