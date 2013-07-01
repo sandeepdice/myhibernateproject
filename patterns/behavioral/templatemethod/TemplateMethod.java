@@ -81,7 +81,7 @@ class Coffee extends BevarageMaker {
 
 }
 
-public class MethodTemplate {
+public class TemplateMethod {
 
 	/**
 	 * @param args
