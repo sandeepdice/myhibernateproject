@@ -1,4 +1,4 @@
-package codility.train.alpha2010;
+package codility.train;
 
 import java.util.Set;
 import java.util.TreeSet;
