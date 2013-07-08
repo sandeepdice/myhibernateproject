@@ -1,0 +1,9 @@
+Q: How do I know which areas of change are more important?
+A: That is partly a matter of experience in designing OO systems and also a matter of the knowing the domain you are working in. 
+Looking at other examples will help you learn to identify areas of change in your own designs.
+
+All design patterns provide a way to let some part of a system vary independently of other parts.
+
+Take the part that varies and "encapsulate" it so it won't affect rest of the code
+
+Programming to interface actually means - programming to supertype. Don't confuse it with java keyword 'interface'.
