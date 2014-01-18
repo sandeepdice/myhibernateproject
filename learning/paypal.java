@@ -36,4 +36,5 @@ class B extends A
     11. how's authentication done in application
     12. how's it passed to backend
     13. how's authorization done in application
+    14. can variables in interface definition have static modifier? yes. they are implicitly public static final
 */
