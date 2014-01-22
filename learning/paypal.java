@@ -63,6 +63,8 @@ Overrides annotations
 who gets user stories in scrum
 what is your day to day activities
 do you have a QA team
+whats difference between waterfall and scrum
+who prepares user stroies
 
 Round 4 - 20 jan 2014
 What's d recent thing u learned
