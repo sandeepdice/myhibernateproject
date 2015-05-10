@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="learning"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="javabrains-hibernate"/>
+	<classpathentry kind="src" path="ta"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/catalina-ant-5.5.15.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-beanutils-1.8.2.jar"/>
