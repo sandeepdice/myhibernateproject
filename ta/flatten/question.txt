@@ -1,0 +1,19 @@
+Flatten a tree
+Question
+
+Implement a method that, given a tree as a parameter, will return an inorder traversal of that tree.
+
+Your implementation should throw an IllegalArgumentException if the tree is null.
+
+Your implementation must implement the FlattenTree interface
+For example a tree like:
+
+
+  /|\
+ 1 | 6
+  /|\
+ 5 4 9
+
+would result in the list [1,5,4,9,6].
+Coding
+Your class must be named flatten.MyFlattenTree
