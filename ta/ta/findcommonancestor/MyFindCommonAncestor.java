@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FindCommonAncestorImpl implements FindCommonAncestor {
+public class MyFindCommonAncestor implements FindCommonAncestor {
 
     /**
      * returns common ancestor of two commits from a graph
@@ -13,15 +13,16 @@ public class FindCommonAncestorImpl implements FindCommonAncestor {
             final String [][] parentHashes, final String commitHash1,
             final String commitHash2) {
         String result = null;
+        List<String> hashList = Arrays.asList(commitHashes);
         // continue only if either of commit hashes are null
-        if (!(commitHashes == null || parentHashes == null)) {
+        if (!hashList.isEmpty() || !(null == parentHashes)) {
             // if either of them is null, return either
-            if (commitHash1 == null || commitHash2 == null) {
-                result = commitHash1 == null ? commitHash2 : commitHash1;
+            if (null == commitHash1  || null == commitHash2) {
+                result = (null == commitHash1) ? commitHash2 : commitHash1;
             } else {
                 // build ancestor tree of each commit
-                List<String> ancestorList1 = buildAncestors(commitHash1, Arrays.asList(commitHashes), parentHashes);
-                List<String> ancestorList2 = buildAncestors(commitHash2, Arrays.asList(commitHashes), parentHashes);
+                List<String> ancestorList1 = buildAncestors(commitHash1, hashList, parentHashes);
+                List<String> ancestorList2 = buildAncestors(commitHash2, hashList, parentHashes);
                 
                 // checking empty case to handle if both commits passed are root
                 if (!(ancestorList1.isEmpty() && ancestorList2.isEmpty())) {
@@ -56,7 +57,9 @@ public class FindCommonAncestorImpl implements FindCommonAncestor {
         // return an empty object rather than a null
         List<String> returnList = new ArrayList<String>();
         while (null != tempHash
+        		&& commitHashes.indexOf(tempHash) >= 0
                 && null != parentHashes[commitHashes.indexOf(tempHash)]
+                		// if parent hashes' size is greater than 0, iterate with 0th index
                 && (null != (parent = parentHashes[commitHashes.indexOf(tempHash)][0]))) {
             returnList.add(parent);
             tempHash = parent;

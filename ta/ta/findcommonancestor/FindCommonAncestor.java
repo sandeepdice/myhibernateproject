@@ -1,4 +1,4 @@
-package findcommonancestor;
+package ta.findcommonancestor;
 
 public interface FindCommonAncestor
 {
