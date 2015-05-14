@@ -1,7 +1,0 @@
-Iteration
-Question
-
-Reimplement this code so that its results will always be the same, but that it does not 
-cause a stack overflow on large inputs. Your solution must still implement the Folder interface.
-Coding
-Your class must be named iteration.MyFolder
